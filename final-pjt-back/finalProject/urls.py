@@ -21,6 +21,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('stock/', include('stock.urls')),
     # path('api/v1/', include('stock.urls')),
     # 라이브러리에서 제공하는 경로 설정
     # 이 URL 세트에는 다음과 같은 엔드포인트가 포함됨.
@@ -31,6 +32,6 @@ urlpatterns = [
     path('accounts/', include('dj_rest_auth.urls')),
     # 회원가입과 관련된 라이브러리 경로 설정
     path('accounts/signup/', include('dj_rest_auth.registration.urls')),
-    # JWT토큰 기반 로그인기능
+    # JWT토큰 기반 로그인기능   
     path('accounts/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 ]

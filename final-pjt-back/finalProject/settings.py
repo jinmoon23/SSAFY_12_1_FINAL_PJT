@@ -70,6 +70,13 @@ REST_FRAMEWORK = {
 # 이메일 받은 경우 이메일 확인까지 거치지는 않도록 함
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+# token을 자동으로 저장하기 위함
+REST_AUTH = {
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'my-app-auth',
+    'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
+}
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
