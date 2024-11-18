@@ -15,8 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('api/v1/', include('stock.urls')),
+    # 라이브러리에서 제공하는 경로 설정
+    # 이 URL 세트에는 다음과 같은 엔드포인트가 포함됨.
+    # 로그아웃: /accounts/logout/
+    # 사용자 상세 정보: /accounts/user/
+    # 비밀번호 변경: /accounts/password/change/
+    # 회원탈퇴: /accounts/user/ (DELETE 메서드 사용)
+    path('accounts/', include('dj_rest_auth.urls')),
+    # 회원가입과 관련된 라이브러리 경로 설정
+    path('accounts/signup/', include('dj_rest_auth.registration.urls')),
+    # JWT토큰 기반 로그인기능
+    path('accounts/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 ]
