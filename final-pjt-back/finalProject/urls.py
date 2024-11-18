@@ -21,7 +21,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stock/', include('stock.urls')),
+    path('api/v1/', include('stock.urls')),
     # path('api/v1/', include('stock.urls')),
     # 라이브러리에서 제공하는 경로 설정
     # 이 URL 세트에는 다음과 같은 엔드포인트가 포함됨.
