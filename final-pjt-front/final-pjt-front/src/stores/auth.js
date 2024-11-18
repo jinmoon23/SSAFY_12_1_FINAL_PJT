@@ -72,6 +72,8 @@ export const useAuthStore = defineStore('auth', () => {
       })
   }
 
-  return { signUp, logIn, logOut, API_URL, token }
+  const isAuthenticated = computed(() => !!token.value)
+
+  return { signUp, logIn, logOut, API_URL, token, isAuthenticated }
 },{persist: true}
 )
