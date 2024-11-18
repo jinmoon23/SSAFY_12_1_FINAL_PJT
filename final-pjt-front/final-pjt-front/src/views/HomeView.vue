@@ -1,17 +1,10 @@
 <template>
   <div>
-    <nav>
-      <RouterLink :to="{name: 'LogInView'}">로그인</RouterLink>
-      |
-      <RouterLink :to="{name: 'SignUpView'}">회원가입</RouterLink>
-    </nav>
-    <RouterView/>
+    <h1>메인페이지</h1>
   </div>
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
 
 </script>
 

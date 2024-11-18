@@ -44,11 +44,33 @@ export const useAuthStore = defineStore('auth', () => {
       .then((res) => {
         token.value = res.data.key
         // 로그인 성공하면 다음 페이지로 이동 가능하게,,!
-        // router.push({ name: 'View 이름'})
+        router.push({ name: 'HomeView'})
       })
       .catch((err) => {
         console.log(err)
       })
   }
+
+  const logOut = function () {
+    axios({
+      method: 'post',
+      url: `${API_URL}/accounts/logout/`,
+      headers: {
+        Authorization: `Token ${token.value}`
+      }
+    })
+      .then(() => {
+        // 로그아웃 성공 처리
+        token.value = null
+        // 로컬 스토리지나 쿠키에 저장된 토큰 제거
+        localStorage.removeItem('token')
+        // 홈 페이지나 로그인 페이지로 리다이렉트
+        router.push({ name: 'HomeView' })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   return { signUp, logIn, API_URL, token }
 })
