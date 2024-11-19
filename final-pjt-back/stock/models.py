@@ -11,7 +11,6 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-
 class Theme(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
@@ -19,6 +18,14 @@ class Theme(models.Model):
 
 class Interest(models.Model):
     name = models.CharField(max_length=30)
+
+class IndustryCode(models.Model):
+    interest = models.ForeignKey(Interest, on_delete=models.CASCADE)
+    api_request_code = models.CharField(max_length=10)
+
+class UserInterest(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    interest = models.ForeignKey(Interest, on_delete=models.CASCADE)
 
 
 class ChartPeriod(models.TextChoices):
