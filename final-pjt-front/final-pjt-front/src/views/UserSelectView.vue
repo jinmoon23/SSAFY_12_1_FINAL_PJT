@@ -32,7 +32,7 @@ import MbtiSelect from '@/components/interests/MbtiSelect.vue'
 import InterestSelect from '@/components/interests/InterestSelect.vue'
 import PeriodSelect from '@/components/interests/PeriodSelect.vue'
 
-import { useUserInterestStore } from '@/stores/userinterst'
+import { useUserInterestStore } from '@/stores/userinterest'
 const store = useUserInterestStore()
 
 const sendUserData = function () {

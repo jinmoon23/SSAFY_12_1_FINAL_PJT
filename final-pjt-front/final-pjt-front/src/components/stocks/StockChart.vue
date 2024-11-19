@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>로딩창</h1>
+
   </div>
 </template>
 

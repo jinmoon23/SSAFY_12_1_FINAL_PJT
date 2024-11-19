@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useUserInterestStore } from '@/stores/userinterst'
+import { useUserInterestStore } from '@/stores/userinterest'
 
 // 슬라이더 값 (1~12개월)
 const investmentDuration = ref(1)

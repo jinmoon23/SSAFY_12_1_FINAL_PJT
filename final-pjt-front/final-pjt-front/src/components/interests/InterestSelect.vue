@@ -32,7 +32,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useUserInterestStore } from '@/stores/userinterst'
+import { useUserInterestStore } from '@/stores/userinterest'
 
 // 카테고리 리스트 정의
 const categories = ref([

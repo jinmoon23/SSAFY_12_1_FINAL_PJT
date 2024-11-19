@@ -20,9 +20,9 @@ export const useUserInterestStore = defineStore('interest', () => {
         Authorization: `Token ${store.token}`
       },
       data: {
-        mbti: usermbti,
-        interest: userinterest,
-        period: userperiod,
+        mbti: usermbti.value,
+        interest: userinterest.value,
+        period: userperiod.value,
       },
     })
       .then((res) => {
@@ -31,6 +31,7 @@ export const useUserInterestStore = defineStore('interest', () => {
   
         // 응답 데이터 처리
         // 추천 테마 6개 리스트 반환
+        // 토큰 반환
 
       })
       .catch((err) => {
