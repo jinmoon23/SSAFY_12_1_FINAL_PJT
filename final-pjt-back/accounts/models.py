@@ -9,7 +9,7 @@ class User(AbstractUser):
         LONG_TERM = 'long', '장기'
     nickname = models.CharField(max_length=50)
     email = models.EmailField(unique=True, blank=False)
-    token = models.TextField()
+    # token = models.TextField()
     
     # period = models.CharField(
     # max_length=6,
