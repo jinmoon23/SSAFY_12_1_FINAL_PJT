@@ -1,0 +1,562 @@
+[
+    {
+      "model": "stock.industrycode",
+      "pk": 1,
+      "fields": {
+        "interest": "1",
+        "code": "00020"
+      }
+    },
+    {
+      "model": "stock.industrycode",
+      "pk": 2,
+      "fields": {
+        "interest": "1",
+        "code": "00021"
+      }
+    },
+    {
+      "model": "stock.industrycode",
+      "pk": 3,
+      "fields": {
+        "interest": "1",
+        "code": "00024"
+      }
+    },
+    {
+      "model": "stock.industrycode",
+      "pk": 4,
+      "fields": {
+        "interest": "1",
+        "code": "00025"
+      }
+    },
+    {
+      "model": "stock.industrycode",
+      "pk": 5,
+      "fields": {
+        "interest": "1",
+        "code": "00026"
+      }
+    },
+    {
+      "model": "stock.industrycode",
+      "pk": 6,
+      "fields": {
+        "interest": "2",
+        "code": "00013"
+      }
+    },
+    {
+      "model": "stock.industrycode",
+      "pk": 7,
+      "fields": {
+        "interest": "2",
+        "code": "00016"
+      }
+    },
+    {
+        "model": "stock.industrycode",
+        "pk": 8,
+        "fields": {
+          "interest": "3",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode", 
+        "pk": 9,
+        "fields": {
+          "interest": "3",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 10,
+        "fields": {
+          "interest": "3", 
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 11,
+        "fields": {
+          "interest": "4",
+          "code": "00016"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 12,
+        "fields": {
+          "interest": "4",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 13,
+        "fields": {
+          "interest": "5",
+          "code": "00012"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 14,
+        "fields": {
+          "interest": "5",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 15,
+        "fields": {
+          "interest": "5",
+          "code": "00015"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 16,
+        "fields": {
+          "interest": "6",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 17,
+        "fields": {
+          "interest": "6",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 18,
+        "fields": {
+          "interest": "7",
+          "code": "00012"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 19,
+        "fields": {
+          "interest": "7",
+          "code": "00015"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 20,
+        "fields": {
+          "interest": "8",
+          "code": "00019"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 21,
+        "fields": {
+          "interest": "8",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 22,
+        "fields": {
+          "interest": "22",
+          "code": "00017"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 23,
+        "fields": {
+          "interest": "23",
+          "code": "00005"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 24,
+        "fields": {
+          "interest": "24",
+          "code": "00008"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 25,
+        "fields": {
+          "interest": "24",
+          "code": "00010"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 26,
+        "fields": {
+          "interest": "24",
+          "code": "00011"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 27,
+        "fields": {
+          "interest": "25",
+          "code": "00008"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 28,
+        "fields": {
+          "interest": "25",
+          "code": "00017"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 29,
+        "fields": {
+          "interest": "26",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 30,
+        "fields": {
+          "interest": "26",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 31,
+        "fields": {
+          "interest": "27",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 32,
+        "fields": {
+          "interest": "27",
+          "code": "00021"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 33,
+        "fields": {
+          "interest": "27",
+          "code": "00024"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 34,
+        "fields": {
+          "interest": "28",
+          "code": "00016"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 35,
+        "fields": {
+          "interest": "29",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 36,
+        "fields": {
+          "interest": "29",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 37,
+        "fields": {
+          "interest": "30",
+          "code": "00005"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 38,
+        "fields": {
+          "interest": "30",
+          "code": "00009"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 39,
+        "fields": {
+          "interest": "30",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 40,
+        "fields": {
+          "interest": "31",
+          "code": "00008"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 41,
+        "fields": {
+          "interest": "31",
+          "code": "00016"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 42,
+        "fields": {
+          "interest": "31",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 43,
+        "fields": {
+          "interest": "9",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 44,
+        "fields": {
+          "interest": "9",
+          "code": "00014"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 45,
+        "fields": {
+          "interest": "9",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 46,
+        "fields": {
+          "interest": "메타버스 구현",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 47,
+        "fields": {
+          "interest": "10",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 48,
+        "fields": {
+          "interest": "10",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 49,
+        "fields": {
+          "interest": "11",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 50,
+        "fields": {
+          "interest": "11",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 51,
+        "fields": {
+          "interest": "12",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 52,
+        "fields": {
+          "interest": "12",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 53,
+        "fields": {
+          "interest": "13",
+          "code": "00012"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 54,
+        "fields": {
+          "interest": "13",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 55,
+        "fields": {
+          "interest": "13",
+          "code": "00015"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 56,
+        "fields": {
+          "interest": "14",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 57,
+        "fields": {
+          "interest": "15",
+          "code": "00005"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 58,
+        "fields": {
+          "interest": "15",
+          "code": "00016"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 59,
+        "fields": {
+          "interest": "15",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 60,
+        "fields": {
+          "interest": "16",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 61,
+        "fields": {
+          "interest": "16",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 62,
+        "fields": {
+          "interest": "17",
+          "code": "00006"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 63,
+        "fields": {
+          "interest": "17",
+          "code": "00016"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 64,
+        "fields": {
+          "interest": "18",
+          "code": "00008"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 65,
+        "fields": {
+          "interest": "18",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 66,
+        "fields": {
+          "interest": "19",
+          "code": "00013"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 67,
+        "fields": {
+          "interest": "20",
+          "code": "00016"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 68,
+        "fields": {
+          "interest": "20",
+          "code": "00020"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 69,
+        "fields": {
+          "interest": "20",
+          "code": "00026"
+        }
+      },
+      {
+        "model": "stock.industrycode",
+        "pk": 70,
+        "fields": {
+          "interest": "21",
+          "code": "00018"
+        }
+      }
+  ]

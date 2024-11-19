@@ -13,7 +13,7 @@ interests_list = [
 # fixture 데이터 생성
 interests_fixture = [
     {
-        "model": "stock.interest",  # 앱이름.모델이름
+        "model": "stock.industrycode",  # 앱이름.모델이름
         "pk": idx + 1,
         "fields": {
             "name": interest
