@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useUserInterestStore } from '@/stores/userinterst'
+import { useUserInterestStore } from '@/stores/userinterest'
 
 const selectedEI = ref(null)
 const selectedSN = ref(null)
