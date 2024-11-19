@@ -6,6 +6,7 @@ import UserSelectView from '@/views/UserSelectView.vue'
 import LoadingView from '@/views/LoadingView.vue'
 import ThemeListView from '@/views/ThemeListView.vue'
 import ThemeItemView from '@/views/ThemeItemView.vue'
+import StockItemView from '@/views/StockItemView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/themeitem',
       name: 'ThemeItemView',
       component: ThemeItemView,
+    },
+    {
+      path: '/stockitem',
+      name: 'StockItemView',
+      component: StockItemView,
     }
   ],
 })
