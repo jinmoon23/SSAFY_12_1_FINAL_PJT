@@ -748,5 +748,965 @@
         "eps": "0.00",
         "logo_img": ""
         }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 51,
+        "fields": {
+          "name": "로블록스",
+          "code": "RBLX", 
+          "description": "온라인 게임 플랫폼",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock", 
+        "pk": 52,
+        "fields": {
+          "name": "테이크-투 인터렉티브",
+          "code": "TTWO",
+          "description": "비디오 게임 제작사",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 53,
+        "fields": {
+          "name": "아마존닷컴",
+          "code": "AMZN",
+          "description": "게임 스트리밍 서비스 제공 기업",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 54,
+        "fields": {
+          "name": "일렉트로닉 아츠",
+          "code": "EA",
+          "description": "글로벌 게임 제작사",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 55,
+        "fields": {
+          "name": "마이크로소프트",
+          "code": "MSFT",
+          "description": "게임 콘솔 및 게임 제작사",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 56,
+        "fields": {
+          "name": "엔씨소프트",
+          "code": "036570",
+          "description": "온라인 게임 개발사",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 57,
+        "fields": {
+          "name": "펄어비스",
+          "code": "263750",
+          "description": "게임 개발 및 서비스 기업",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 58,
+        "fields": {
+          "name": "크래프톤",
+          "code": "259960",
+          "description": "게임 개발사",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 59,
+        "fields": {
+          "name": "카카오게임즈",
+          "code": "293490",
+          "description": "모바일 게임 개발사",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 60,
+        "fields": {
+          "name": "넷마블",
+          "code": "251270",
+          "description": "모바일 게임 개발 및 퍼블리싱",
+          "theme": 3,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 61,
+        "fields": {
+          "name": "펠로톤 인터렉티브",
+          "code": "PTON",
+          "description": "온라인 피트니스 플랫폼",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 62,
+        "fields": {
+          "name": "도어대시",
+          "code": "DASH",
+          "description": "음식 배달 플랫폼",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 63,
+        "fields": {
+          "name": "아마존닷컴",
+          "code": "AMZN",
+          "description": "전자상거래 플랫폼",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 64,
+        "fields": {
+          "name": "넷플릭스",
+          "code": "NFLX",
+          "description": "온라인 스트리밍 서비스",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 65,
+        "fields": {
+          "name": "이마트",
+          "code": "139480",
+          "description": "대형 유통업체",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 66,
+        "fields": {
+          "name": "NAVER",
+          "code": "035420",
+          "description": "인터넷 플랫폼 기업",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 67,
+        "fields": {
+          "name": "지니뮤직",
+          "code": "043610",
+          "description": "음원 스트리밍 서비스",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 68,
+        "fields": {
+          "name": "카카오",
+          "code": "035720",
+          "description": "모바일 플랫폼 기업",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 69,
+        "fields": {
+          "name": "CJ ENM",
+          "code": "035760",
+          "description": "엔터테인먼트 미디어 기업",
+          "theme": 2,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 70,
+        "fields": {
+          "name": "테슬라",
+          "code": "TSLA",
+          "description": "전기차 및 클린에너지 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 71,
+        "fields": {
+          "name": "아마존닷컴",
+          "code": "AMZN",
+          "description": "글로벌 전자상거래 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 72,
+        "fields": {
+          "name": "엔비디아",
+          "code": "NVDA",
+          "description": "반도체 및 AI 기술 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 73,
+        "fields": {
+          "name": "넷플릭스",
+          "code": "NFLX",
+          "description": "글로벌 스트리밍 서비스 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 74,
+        "fields": {
+          "name": "스포티파이 테크놀리지",
+          "code": "SPOT",
+          "description": "음원 스트리밍 서비스 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 75,
+        "fields": {
+          "name": "하이브",
+          "code": "352820",
+          "description": "엔터테인먼트 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 76,
+        "fields": {
+          "name": "엔씨소프트",
+          "code": "036570",
+          "description": "게임 개발 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 77,
+        "fields": {
+          "name": "NAVER",
+          "code": "035420",
+          "description": "인터넷 플랫폼 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 78,
+        "fields": {
+          "name": "카카오",
+          "code": "035720",
+          "description": "모바일 플랫폼 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 79,
+        "fields": {
+          "name": "셀트리온",
+          "code": "068270",
+          "description": "바이오 제약 기업",
+          "theme": 4,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 80,
+        "fields": {
+          "name": "아마존닷컴",
+          "code": "AMZN", 
+          "description": "글로벌 미디어 스트리밍 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 81,
+        "fields": {
+          "name": "컴캐스트",
+          "code": "CMCSA",
+          "description": "글로벌 미디어 및 엔터테인먼트 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 82,
+        "fields": {
+          "name": "월트 디즈니",
+          "code": "DIS",
+          "description": "글로벌 엔터테인먼트 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 83,
+        "fields": {
+          "name": "스튜디오 드래곤",
+          "code": "253450",
+          "description": "드라마 제작 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 84,
+        "fields": {
+          "name": "초록뱀미디어",
+          "code": "047820",
+          "description": "드라마 제작 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 85,
+        "fields": {
+          "name": "에이스토리",
+          "code": "241840",
+          "description": "드라마 제작 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 86,
+        "fields": {
+          "name": "CJ ENM",
+          "code": "035760",
+          "description": "엔터테인먼트 미디어 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 87,
+        "fields": {
+          "name": "NEW",
+          "code": "160550",
+          "description": "영화 및 드라마 제작 기업",
+          "theme": 6,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 88,
+        "fields": {
+          "name": "테슬라",
+          "code": "TSLA",
+          "description": "전기차 및 클린에너지 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 89,
+        "fields": {
+          "name": "포드 모터",
+          "code": "F",
+          "description": "글로벌 자동차 제조 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 90,
+        "fields": {
+          "name": "페라리",
+          "code": "RACE",
+          "description": "럭셔리 스포츠카 제조 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 91,
+        "fields": {
+          "name": "할리-데이비슨",
+          "code": "HOG",
+          "description": "모터사이클 제조 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 92,
+        "fields": {
+          "name": "기아",
+          "code": "000270",
+          "description": "글로벌 자동차 제조 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 93,
+        "fields": {
+          "name": "KG모빌리티",
+          "code": "003620",
+          "description": "모빌리티 솔루션 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 94,
+        "fields": {
+          "name": "현대차",
+          "code": "005380",
+          "description": "글로벌 자동차 제조 기업",
+          "theme": 7,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 95,
+        "fields": {
+          "name": "엔비디아",
+          "code": "NVDA",
+          "description": "자율주행 AI칩 제조 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 96,
+        "fields": {
+          "name": "우버 테크놀로지스",
+          "code": "UBER",
+          "description": "자율주행 모빌리티 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 97,
+        "fields": {
+          "name": "현대모비스",
+          "code": "012330",
+          "description": "자동차 부품 제조 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 98,
+        "fields": {
+          "name": "엠씨넥스",
+          "code": "097520",
+          "description": "자동차 카메라 모듈 제조 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 99,
+        "fields": {
+          "name": "드림텍",
+          "code": "192650",
+          "description": "자율주행 센서 제조 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 100,
+        "fields": {
+          "name": "HL만도",
+          "code": "204320",
+          "description": "자동차 부품 제조 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 101,
+        "fields": {
+          "name": "LG이노텍",
+          "code": "011070",
+          "description": "자율주행 부품 제조 기업",
+          "theme": 5,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 102,
+        "fields": {
+          "name": "카니발",
+          "code": "CCL",
+          "description": "크루즈 여행 기업",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 103,
+        "fields": {
+          "name": "부킹 홀딩스",
+          "code": "BKNG",
+          "description": "온라인 여행 예약 플랫폼",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 104,
+        "fields": {
+          "name": "힐튼 월드와이드",
+          "code": "HLT",
+          "description": "글로벌 호텔 체인",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 105,
+        "fields": {
+          "name": "사우스웨스트 에어라인",
+          "code": "LUV",
+          "description": "미국 항공사",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 106,
+        "fields": {
+          "name": "라스베가스 샌즈",
+          "code": "LVS",
+          "description": "카지노 리조트 운영 기업",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 107,
+        "fields": {
+          "name": "대한항공",
+          "code": "003490",
+          "description": "국내 대표 항공사",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 108,
+        "fields": {
+          "name": "강원랜드",
+          "code": "035250",
+          "description": "카지노 리조트 운영 기업",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 109,
+        "fields": {
+          "name": "아시아나항공",
+          "code": "020560",
+          "description": "국내 항공사",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 110,
+        "fields": {
+          "name": "파라다이스",
+          "code": "034230",
+          "description": "카지노 리조트 운영 기업",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 111,
+        "fields": {
+          "name": "호텔신라",
+          "code": "008770",
+          "description": "호텔 및 면세점 운영 기업",
+          "theme": 8,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 112,
+        "fields": {
+          "name": "LG이노텍",
+          "code": "011070",
+          "description": "VR 디스플레이 부품 제조 기업",
+          "theme": 9,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 113,
+        "fields": {
+          "name": "자이언트스텝",
+          "code": "289220",
+          "description": "VR 콘텐츠 제작 기업",
+          "theme": 9,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 114,
+        "fields": {
+          "name": "맥스트",
+          "code": "377030",
+          "description": "AR/VR 솔루션 개발 기업",
+          "theme": 9,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
       }
 ]

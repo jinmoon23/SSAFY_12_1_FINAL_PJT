@@ -57,7 +57,6 @@ def analyze(request):
                     themes_info.append(theme_info)
                 except Interest.DoesNotExist:
                     continue
-            # 여기까지 user의 mbti / interest / period 각 엔터티에 저장 완료
             
             # themes_info 길이 조정
             if len(themes_info) < 6:
