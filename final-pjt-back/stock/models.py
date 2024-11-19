@@ -15,6 +15,11 @@ class UserProfile(models.Model):
 class Theme(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
+    code = models.CharField(max_length=6)
+
+class Interest(models.Model):
+    name = models.CharField(max_length=30)
+
 
 class ChartPeriod(models.TextChoices):
     DAY = 'D', '일'
@@ -46,6 +51,7 @@ class Stock(models.Model):
     consensus = models.CharField(max_length=50)  # Analyst consensus
     eps = models.DecimalField(max_digits=10, decimal_places=2)  # Earnings Per Share
 
+    logo_img = models.TextField()
     def __str__(self):
         return self.name
 

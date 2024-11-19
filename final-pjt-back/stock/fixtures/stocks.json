@@ -1,0 +1,752 @@
+[
+    {
+        "model": "stock.stock",
+        "pk": 1,
+        "fields": {
+          "name": "업스타트 홀딩스",
+          "code": "UPST",
+          "description": "핀테크 기업",
+          "theme": 1,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 2,
+        "fields": {
+          "name": "소파이 테크놀로지",
+          "code": "SOFI",
+          "description": "핀테크 기업",
+          "theme": 1,
+          "per": "0.00",
+          "pbr": "0.00",
+          "consensus": "",
+          "eps": "0.00",
+          "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 3,
+        "fields": {
+          "name": "로빈후드 마켓",
+          "code": "HOOD",
+          "description": "핀테크 기업",
+          "theme": 1 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 4,
+        "fields": {
+          "name": "NAVER",
+          "code": "035420",
+          "description": "국내 대표 인터넷 기업",
+          "theme": 1 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 5,
+        "fields": {
+          "name": "테슬라",
+          "code": "TSLA",
+          "description": "전기자동차 및 자율주행 선도기업",
+          "theme": 5 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 6,
+        "fields": {
+          "name": "인텔",
+          "code": "INTC",
+          "description": "반도체 제조 기업",
+          "theme": 5 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 7,
+        "fields": {
+          "name": "알파벳 A주",
+          "code": "GOOGL",
+          "description": "구글의 지주회사",
+          "theme": 5 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 8,
+        "fields": {
+          "name": "워너 브로스 디스커버리",
+          "code": "WBD",
+          "description": "글로벌 미디어 엔터테인먼트 기업",
+          "theme": 6 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 9,
+        "fields": {
+          "name": "넷플릭스",
+          "code": "NFLX",
+          "description": "글로벌 스트리밍 서비스 기업",
+          "theme": 6 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 10,
+        "fields": {
+          "name": "제너럴 모터스",
+          "code": "GM",
+          "description": "미국의 자동차 제조 기업",
+          "theme": 7 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 11,
+        "fields": {
+          "name": "델타 에어 라인",
+          "code": "DAL",
+          "description": "미국의 항공사",
+          "theme": 8 ,    
+        "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 12,
+        "fields": {
+          "name": "메리어트 인터내셔널",
+          "code": "MAR",
+          "description": "글로벌 호텔 체인",
+          "theme": 8 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 13,
+        "fields": {
+          "name": "인텔",
+          "code": "INTC",
+          "description": "반도체 및 VR 기술 기업",
+          "theme": 9 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 14,
+        "fields": {
+          "name": "알파벳 C주",
+          "code": "GOOG",
+          "description": "구글의 지주회사",
+          "theme": 9 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 15,
+        "fields": {
+          "name": "메타 플랫폼스",
+          "code": "META",
+          "description": "메타버스 선도 기업",
+          "theme": 9 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 16,
+        "fields": {
+          "name": "LG이노텍",
+          "code": "011070",
+          "description": "전자부품 제조 기업",
+          "theme": 9 ,     
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 17,
+        "fields": {
+          "name": "오토데스크",
+          "code": "ADSK",
+          "description": "3D 설계 소프트웨어 기업",
+          "theme": 10,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 18,
+        "fields": {
+          "name": "엔비디아",
+          "code": "NVDA",
+          "description": "그래픽 처리 장치 제조 기업",
+          "theme": 10,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 19,
+        "fields": {
+          "name": "유니티 소프트웨어",
+          "code": "U",
+          "description": "게임 엔진 개발 기업",
+          "theme": 10,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 20,
+        "fields": {
+          "name": "아마존닷컴",
+          "code": "AMZN",
+          "description": "전자상거래 및 클라우드 컴퓨팅 기업",
+          "theme": 11,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 21,
+        "fields": {
+          "name": "마이크로소프트",
+          "code": "MSFT",
+          "description": "소프트웨어 및 클라우드 서비스 기업",
+          "theme": 11,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 22,
+        "fields": {
+          "name": "IBM",
+          "code": "IBM",
+          "description": "정보 기술 및 컨설팅 기업",
+          "theme": 11,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 23,
+        "fields": {
+          "name": "SK텔레콤",
+          "code": "017670",
+          "description": "국내 최대 통신사",
+          "theme": 11,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 24,
+        "fields": {
+          "name": "삼성전자",
+          "code": "005930",
+          "description": "글로벌 전자기기 제조기업",
+          "theme": 11,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 25,
+        "fields": {
+          "name": "롯데칠성",
+          "code": "005300",
+          "description": "음료 제조 기업",
+          "theme": 23,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 26,
+        "fields": {
+          "name": "하이트진로",
+          "code": "000080",
+          "description": "주류 제조 기업",
+          "theme": 23,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 27,
+        "fields": {
+          "name": "빙그레",
+          "code": "005180",
+          "description": "식품 제조 기업",
+          "theme": 23,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 28,
+        "fields": {
+          "name": "코카콜라",
+          "code": "KO",
+          "description": "글로벌 음료 제조 기업",
+          "theme": 23,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 29,
+        "fields": {
+          "name": "펩시코",
+          "code": "PEP",
+          "description": "글로벌 음료 및 과자 제조 기업",
+          "theme": 23,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 30,
+        "fields": {
+          "name": "루이비통",
+          "code": "LVMUY",
+          "description": "글로벌 럭셔리 브랜드",
+          "theme": 24,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 31,
+        "fields": {
+          "name": "에르메스",
+          "code": "HESAY",
+          "description": "프랑스 럭셔리 브랜드",
+          "theme": 24,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 32,
+        "fields": {
+          "name": "포스코홀딩스",
+          "code": "005490",
+          "description": "철강 제조 기업",
+          "theme": 25,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 33,
+        "fields": {
+          "name": "LG화학",
+          "code": "051910",
+          "description": "화학 제품 제조 기업",
+          "theme": 25,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 34,
+        "fields": {
+          "name": "엑슨모빌",
+          "code": "XOM",
+          "description": "글로벌 에너지 기업",
+          "theme": 26,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 35,
+        "fields": {
+          "name": "쉐브론",
+          "code": "CVX",
+          "description": "글로벌 에너지 기업",
+          "theme": 26,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 36,
+        "fields": {
+          "name": "스냅",
+          "code": "SNAP",
+          "description": "소셜 미디어 플랫폼",
+          "theme": 27,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 37,
+        "fields": {
+          "name": "핀터레스트",
+          "code": "PINS",
+          "description": "이미지 기반 소셜 미디어 플랫폼",
+          "theme": 27,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 38,
+        "fields": {
+          "name": "코인베이스",
+          "code": "COIN",
+          "description": "암호화폐 거래소",
+          "theme": 28,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 39,
+        "fields": {
+          "name": "블록",
+          "code": "SQ",
+          "description": "디지털 결제 및 금융 서비스 기업",
+          "theme": 28,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 40,
+        "fields": {
+          "name": "월마트",
+          "code": "WMT",
+          "description": "글로벌 유통 기업",
+          "theme": 29,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 41,
+        "fields": {
+          "name": "코스트코",
+          "code": "COST",
+          "description": "회원제 창고형 할인점",
+          "theme": 29,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 42,
+        "fields": {
+          "name": "홈디포",
+          "code": "HD",
+          "description": "주택 개선 용품 유통업체",
+          "theme": 29,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 43,
+        "fields": {
+          "name": "시스코",
+          "code": "CSCO",
+          "description": "네트워크 장비 제조 기업",
+          "theme": 30,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 44,
+        "fields": {
+          "name": "퀄컴",
+          "code": "QCOM",
+          "description": "무선통신 기술 기업",
+          "theme": 30,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 45,
+        "fields": {
+          "name": "처브",
+          "code": "CHWY",
+          "description": "온라인 반려동물 용품 유통업체",
+          "theme": 31,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 46,
+        "fields": {
+          "name": "아이데시코",
+          "code": "IDXX",
+          "description": "동물 진단기기 제조업체",
+          "theme": 31,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 47,
+        "fields": {
+          "name": "에스티 로더",
+          "code": "EL",
+          "description": "글로벌 화장품 기업",
+          "theme": 32,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 48,
+        "fields": {
+          "name": "로레알",
+          "code": "LRLCY",
+          "description": "글로벌 화장품 기업",
+          "theme": 32,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 49,
+        "fields": {
+          "name": "아모레퍼시픽",
+          "code": "090430",
+          "description": "국내 대표 화장품 기업",
+          "theme": 32,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      },
+      {
+        "model": "stock.stock",
+        "pk": 50,
+        "fields": {
+          "name": "LG생활건강",
+          "code": "051900",
+          "description": "생활용품 및 화장품 제조 기업",
+          "theme": 32,      
+          "per": "0.00",
+        "pbr": "0.00",
+        "consensus": "",
+        "eps": "0.00",
+        "logo_img": ""
+        }
+      }
+]
