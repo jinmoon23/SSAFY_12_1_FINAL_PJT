@@ -5,6 +5,7 @@ import SignUpView from '@/views/SignUpView.vue'
 import UserSelectView from '@/views/UserSelectView.vue'
 import LoadingView from '@/views/LoadingView.vue'
 import ThemeListView from '@/views/ThemeListView.vue'
+import ThemeItemView from '@/views/ThemeItemView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/themelist',
       name: 'ThemeListView',
       component: ThemeListView,
+    },
+    {
+      path: '/themeitem',
+      name: 'ThemeItemView',
+      component: ThemeItemView,
     }
   ],
 })
