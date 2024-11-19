@@ -64,5 +64,3 @@ def get_industry_price_series(access_token, industry_code, start_date, end_date)
         raise Exception(f"Request Failed: {str(e)}")
     except Exception as e:
         raise Exception(f"Error: {str(e)}")
-    
-
