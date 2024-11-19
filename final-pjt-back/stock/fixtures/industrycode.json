@@ -4,7 +4,7 @@
       "pk": 1,
       "fields": {
         "interest": "1",
-        "code": "00020"
+        "api_request_code": "0020"
       }
     },
     {
@@ -12,7 +12,7 @@
       "pk": 2,
       "fields": {
         "interest": "1",
-        "code": "00021"
+        "api_request_code": "0021"
       }
     },
     {
@@ -20,7 +20,7 @@
       "pk": 3,
       "fields": {
         "interest": "1",
-        "code": "00024"
+        "api_request_code": "0024"
       }
     },
     {
@@ -28,7 +28,7 @@
       "pk": 4,
       "fields": {
         "interest": "1",
-        "code": "00025"
+        "api_request_code": "0025"
       }
     },
     {
@@ -36,7 +36,7 @@
       "pk": 5,
       "fields": {
         "interest": "1",
-        "code": "00026"
+        "api_request_code": "0026"
       }
     },
     {
@@ -44,7 +44,7 @@
       "pk": 6,
       "fields": {
         "interest": "2",
-        "code": "00013"
+        "api_request_code": "0013"
       }
     },
     {
@@ -52,7 +52,7 @@
       "pk": 7,
       "fields": {
         "interest": "2",
-        "code": "00016"
+        "api_request_code": "0016"
       }
     },
     {
@@ -60,7 +60,7 @@
         "pk": 8,
         "fields": {
           "interest": "3",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -68,7 +68,7 @@
         "pk": 9,
         "fields": {
           "interest": "3",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -76,7 +76,7 @@
         "pk": 10,
         "fields": {
           "interest": "3", 
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -84,7 +84,7 @@
         "pk": 11,
         "fields": {
           "interest": "4",
-          "code": "00016"
+          "api_request_code": "0016"
         }
       },
       {
@@ -92,7 +92,7 @@
         "pk": 12,
         "fields": {
           "interest": "4",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -100,7 +100,7 @@
         "pk": 13,
         "fields": {
           "interest": "5",
-          "code": "00012"
+          "api_request_code": "0012"
         }
       },
       {
@@ -108,7 +108,7 @@
         "pk": 14,
         "fields": {
           "interest": "5",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -116,7 +116,7 @@
         "pk": 15,
         "fields": {
           "interest": "5",
-          "code": "00015"
+          "api_request_code": "0015"
         }
       },
       {
@@ -124,7 +124,7 @@
         "pk": 16,
         "fields": {
           "interest": "6",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -132,7 +132,7 @@
         "pk": 17,
         "fields": {
           "interest": "6",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -140,7 +140,7 @@
         "pk": 18,
         "fields": {
           "interest": "7",
-          "code": "00012"
+          "api_request_code": "0012"
         }
       },
       {
@@ -148,7 +148,7 @@
         "pk": 19,
         "fields": {
           "interest": "7",
-          "code": "00015"
+          "api_request_code": "0015"
         }
       },
       {
@@ -156,7 +156,7 @@
         "pk": 20,
         "fields": {
           "interest": "8",
-          "code": "00019"
+          "api_request_code": "0019"
         }
       },
       {
@@ -164,7 +164,7 @@
         "pk": 21,
         "fields": {
           "interest": "8",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -172,7 +172,7 @@
         "pk": 22,
         "fields": {
           "interest": "22",
-          "code": "00017"
+          "api_request_code": "0017"
         }
       },
       {
@@ -180,7 +180,7 @@
         "pk": 23,
         "fields": {
           "interest": "23",
-          "code": "00005"
+          "api_request_code": "0005"
         }
       },
       {
@@ -188,7 +188,7 @@
         "pk": 24,
         "fields": {
           "interest": "24",
-          "code": "00008"
+          "api_request_code": "0008"
         }
       },
       {
@@ -196,7 +196,7 @@
         "pk": 25,
         "fields": {
           "interest": "24",
-          "code": "00010"
+          "api_request_code": "0010"
         }
       },
       {
@@ -204,7 +204,7 @@
         "pk": 26,
         "fields": {
           "interest": "24",
-          "code": "00011"
+          "api_request_code": "0011"
         }
       },
       {
@@ -212,7 +212,7 @@
         "pk": 27,
         "fields": {
           "interest": "25",
-          "code": "00008"
+          "api_request_code": "0008"
         }
       },
       {
@@ -220,7 +220,7 @@
         "pk": 28,
         "fields": {
           "interest": "25",
-          "code": "00017"
+          "api_request_code": "0017"
         }
       },
       {
@@ -228,7 +228,7 @@
         "pk": 29,
         "fields": {
           "interest": "26",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -236,7 +236,7 @@
         "pk": 30,
         "fields": {
           "interest": "26",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -244,7 +244,7 @@
         "pk": 31,
         "fields": {
           "interest": "27",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -252,7 +252,7 @@
         "pk": 32,
         "fields": {
           "interest": "27",
-          "code": "00021"
+          "api_request_code": "0021"
         }
       },
       {
@@ -260,7 +260,7 @@
         "pk": 33,
         "fields": {
           "interest": "27",
-          "code": "00024"
+          "api_request_code": "0024"
         }
       },
       {
@@ -268,7 +268,7 @@
         "pk": 34,
         "fields": {
           "interest": "28",
-          "code": "00016"
+          "api_request_code": "0016"
         }
       },
       {
@@ -276,7 +276,7 @@
         "pk": 35,
         "fields": {
           "interest": "29",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -284,7 +284,7 @@
         "pk": 36,
         "fields": {
           "interest": "29",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -292,7 +292,7 @@
         "pk": 37,
         "fields": {
           "interest": "30",
-          "code": "00005"
+          "api_request_code": "0005"
         }
       },
       {
@@ -300,7 +300,7 @@
         "pk": 38,
         "fields": {
           "interest": "30",
-          "code": "00009"
+          "api_request_code": "0009"
         }
       },
       {
@@ -308,7 +308,7 @@
         "pk": 39,
         "fields": {
           "interest": "30",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -316,7 +316,7 @@
         "pk": 40,
         "fields": {
           "interest": "31",
-          "code": "00008"
+          "api_request_code": "0008"
         }
       },
       {
@@ -324,7 +324,7 @@
         "pk": 41,
         "fields": {
           "interest": "31",
-          "code": "00016"
+          "api_request_code": "0016"
         }
       },
       {
@@ -332,7 +332,7 @@
         "pk": 42,
         "fields": {
           "interest": "31",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -340,7 +340,7 @@
         "pk": 43,
         "fields": {
           "interest": "9",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -348,7 +348,7 @@
         "pk": 44,
         "fields": {
           "interest": "9",
-          "code": "00014"
+          "api_request_code": "0014"
         }
       },
       {
@@ -356,15 +356,15 @@
         "pk": 45,
         "fields": {
           "interest": "9",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
         "model": "stock.industrycode",
         "pk": 46,
         "fields": {
-          "interest": "메타버스 구현",
-          "code": "00013"
+          "interest": "10",
+          "api_request_code": "0013"
         }
       },
       {
@@ -372,7 +372,7 @@
         "pk": 47,
         "fields": {
           "interest": "10",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -380,7 +380,7 @@
         "pk": 48,
         "fields": {
           "interest": "10",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -388,7 +388,7 @@
         "pk": 49,
         "fields": {
           "interest": "11",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -396,7 +396,7 @@
         "pk": 50,
         "fields": {
           "interest": "11",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -404,7 +404,7 @@
         "pk": 51,
         "fields": {
           "interest": "12",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -412,7 +412,7 @@
         "pk": 52,
         "fields": {
           "interest": "12",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -420,7 +420,7 @@
         "pk": 53,
         "fields": {
           "interest": "13",
-          "code": "00012"
+          "api_request_code": "0012"
         }
       },
       {
@@ -428,7 +428,7 @@
         "pk": 54,
         "fields": {
           "interest": "13",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -436,7 +436,7 @@
         "pk": 55,
         "fields": {
           "interest": "13",
-          "code": "00015"
+          "api_request_code": "0015"
         }
       },
       {
@@ -444,7 +444,7 @@
         "pk": 56,
         "fields": {
           "interest": "14",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -452,7 +452,7 @@
         "pk": 57,
         "fields": {
           "interest": "15",
-          "code": "00005"
+          "api_request_code": "0005"
         }
       },
       {
@@ -460,7 +460,7 @@
         "pk": 58,
         "fields": {
           "interest": "15",
-          "code": "00016"
+          "api_request_code": "0016"
         }
       },
       {
@@ -468,7 +468,7 @@
         "pk": 59,
         "fields": {
           "interest": "15",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -476,7 +476,7 @@
         "pk": 60,
         "fields": {
           "interest": "16",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -484,7 +484,7 @@
         "pk": 61,
         "fields": {
           "interest": "16",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -492,7 +492,7 @@
         "pk": 62,
         "fields": {
           "interest": "17",
-          "code": "00006"
+          "api_request_code": "0006"
         }
       },
       {
@@ -500,7 +500,7 @@
         "pk": 63,
         "fields": {
           "interest": "17",
-          "code": "00016"
+          "api_request_code": "0016"
         }
       },
       {
@@ -508,7 +508,7 @@
         "pk": 64,
         "fields": {
           "interest": "18",
-          "code": "00008"
+          "api_request_code": "0008"
         }
       },
       {
@@ -516,7 +516,7 @@
         "pk": 65,
         "fields": {
           "interest": "18",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -524,7 +524,7 @@
         "pk": 66,
         "fields": {
           "interest": "19",
-          "code": "00013"
+          "api_request_code": "0013"
         }
       },
       {
@@ -532,7 +532,7 @@
         "pk": 67,
         "fields": {
           "interest": "20",
-          "code": "00016"
+          "api_request_code": "0016"
         }
       },
       {
@@ -540,7 +540,7 @@
         "pk": 68,
         "fields": {
           "interest": "20",
-          "code": "00020"
+          "api_request_code": "0020"
         }
       },
       {
@@ -548,7 +548,7 @@
         "pk": 69,
         "fields": {
           "interest": "20",
-          "code": "00026"
+          "api_request_code": "0026"
         }
       },
       {
@@ -556,7 +556,7 @@
         "pk": 70,
         "fields": {
           "interest": "21",
-          "code": "00018"
+          "api_request_code": "0018"
         }
       }
   ]

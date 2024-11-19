@@ -5,14 +5,7 @@
     "fields": {
       "name": "핀테크",
       "code": "PIN",
-      "description": "핀테크 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0020",
-        "0021",
-        "0024",
-        "0025",
-        "0026"
-      ]
+      "description": "핀테크 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -21,13 +14,7 @@
     "fields": {
       "name": "언택트경제",
       "code": "UNT",
-      "description": "언택트 경제 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0016",
-        "0020",
-        "0026"
-      ]
+      "description": "언택트 경제 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -36,12 +23,7 @@
     "fields": {
       "name": "게임월드",
       "code": "GAM",
-      "description": "게임 산업 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0020",
-        "0026"
-      ]
+      "description": "게임 산업 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -50,11 +32,7 @@
     "fields": {
       "name": "카리스마창업자",
       "code": "ENT",
-      "description": "성공적인 창업 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0016",
-        "0026"
-      ]
+      "description": "성공적인 창업 기업들을 모아놓은 테마"
     }
   },
   {
@@ -63,12 +41,7 @@
     "fields": {
       "name": "자율주행차",
       "code": "AUT",
-      "description": "자율주행 자동차 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0012",
-        "0013",
-        "0015"
-      ]
+      "description": "자율주행 자동차 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -77,11 +50,7 @@
     "fields": {
       "name": "컨텐츠강자",
       "code": "CON",
-      "description": "컨텐츠 제작 및 유통 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0020",
-        "0026"
-      ]
+      "description": "컨텐츠 제작 및 유통 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -90,11 +59,7 @@
     "fields": {
       "name": "신나는 드라이빙",
       "code": "DRV",
-      "description": "자동차 제조 및 관련 산업 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0012",
-        "0015"
-      ]
+      "description": "자동차 제조 및 관련 산업 기업들을 모아놓은 테마"
     }
   },
   {
@@ -103,11 +68,7 @@
     "fields": {
       "name": "이번 휴가는 어디?",
       "code": "TRV",
-      "description": "여행 및 레저 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0019",
-        "0026"
-      ]
+      "description": "여행 및 레저 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -116,12 +77,7 @@
     "fields": {
       "name": "가상현실(VR)",
       "code": "VRT",
-      "description": "가상현실 기술 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0014",
-        "0020"
-      ]
+      "description": "가상현실 기술 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -130,12 +86,7 @@
     "fields": {
       "name": "메타버스 구현",
       "code": "MET",
-      "description": "메타버스 관련 기술 및 서비스 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0020",
-        "0026"
-      ]
+      "description": "메타버스 관련 기술 및 서비스 기업들을 모아놓은 테마"
     }
   },
   {
@@ -144,11 +95,7 @@
     "fields": {
       "name": "인공지능",
       "code": "AIN",
-      "description": "인공지능 기술 개발 및 응용 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0020"
-      ]
+      "description": "인공지능 기술 개발 및 응용 기업들을 모아놓은 테마"
     }
   },
   {
@@ -157,11 +104,7 @@
     "fields": {
       "name": "클라우드",
       "code": "CLD",
-      "description": "클라우드 컴퓨팅 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0020"
-      ]
+      "description": "클라우드 컴퓨팅 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -170,12 +113,7 @@
     "fields": {
       "name": "항공우주&방위산업",
       "code": "AER",
-      "description": "항공우주 및 방위산업 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0012",
-        "0013",
-        "0015"
-      ]
+      "description": "항공우주 및 방위산업 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -184,10 +122,7 @@
     "fields": {
       "name": "통신",
       "code": "COM",
-      "description": "통신 서비스 제공 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0020"
-      ]
+      "description": "통신 서비스 제공 기업들을 모아놓은 테마"
     }
   },
   {
@@ -196,12 +131,7 @@
     "fields": {
       "name": "프랜차이즈",
       "code": "FRC",
-      "description": "프랜차이즈 사업 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0005",
-        "0016",
-        "0026"
-      ]
+      "description": "프랜차이즈 사업 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -210,11 +140,7 @@
     "fields": {
       "name": "스트리밍의 시대",
       "code": "STR",
-      "description": "스트리밍 서비스 및 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0020",
-        "0026"
-      ]
+      "description": "스트리밍 서비스 및 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -223,11 +149,7 @@
     "fields": {
       "name": "어디 옷이야?",
       "code": "FSH",
-      "description": "의류 제조 및 패션 유통 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0006",
-        "0016"
-      ]
+      "description": "의류 제조 및 패션 유통 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -236,11 +158,7 @@
     "fields": {
       "name": "리튬&배터리",
       "code": "BAT",
-      "description": "리튬 배터리 제조 및 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0008",
-        "0013"
-      ]
+      "description": "리튬 배터리 제조 및 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -249,10 +167,7 @@
     "fields": {
       "name": "반도체",
       "code": "SEM",
-      "description": "반도체 제조 및 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013"
-      ]
+      "description": "반도체 제조 및 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -261,12 +176,7 @@
     "fields": {
       "name": "플랫폼 대표주자",
       "code": "PLT",
-      "description": "온라인 플랫폼 서비스 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0016",
-        "0020",
-        "0026"
-      ]
+      "description": "온라인 플랫폼 서비스 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -275,10 +185,7 @@
     "fields": {
       "name": "건물주의 꿈",
       "code": "BLD",
-      "description": "건설 및 부동산 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0018"
-      ]
+      "description": "건설 및 부동산 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -287,10 +194,7 @@
     "fields": {
       "name": "클린 에너지",
       "code": "CLN",
-      "description": "신재생 에너지 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0017"
-      ]
+      "description": "신재생 에너지 관련 기업들을 모아놓은 테마"
     }
   },
   {
@@ -299,117 +203,88 @@
     "fields": {
       "name": "갈증해소",
       "code": "BEV",
-      "description": "음료 및 식품 제조 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0005"
-      ]
+      "description": "음료 및 식품 제조 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 24,
     "fields": {
-      "name": "소비/원자재",
-      "code": "RAW",
-      "description": "원자재 생산 및 가공 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0008",
-        "0010",
-        "0011"
-      ]
+      "name": "럭셔리",
+      "code": "LUX",
+      "description": "명품 유통 및 생산 관련 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 25,
     "fields": {
-      "name": "자원/에너지",
-      "code": "ENR",
-      "description": "에너지 자원 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0008",
-        "0017"
-      ]
+      "name": "소비/원자재",
+      "code": "RAW",
+      "description": "원자재 생산 및 가공 관련 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 26,
     "fields": {
-      "name": "소셜미디어",
-      "code": "SOC",
-      "description": "소셜미디어 플랫폼 및 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0020",
-        "0026"
-      ]
+      "name": "자원/에너지",
+      "code": "ENR",
+      "description": "에너지 자원 관련 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 27,
     "fields": {
-      "name": "블록체인",
-      "code": "BLC",
-      "description": "블록체인 기술 및 관련 금융 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0020",
-        "0021",
-        "0024"
-      ]
+      "name": "소셜미디어",
+      "code": "SOC",
+      "description": "소셜미디어 플랫폼 및 관련 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 28,
     "fields": {
-      "name": "리테일/유통",
-      "code": "RET",
-      "description": "소매 및 유통 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0016"
-      ]
+      "name": "블록체인",
+      "code": "BLC",
+      "description": "블록체인 기술 및 관련 금융 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 29,
     "fields": {
-      "name": "사물인터넷(IOT)",
-      "code": "IOT",
-      "description": "사물인터넷 기술 및 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0013",
-        "0020"
-      ]
+      "name": "리테일/유통",
+      "code": "RET",
+      "description": "소매 및 유통 관련 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 30,
     "fields": {
-      "name": "반려동물",
-      "code": "PET",
-      "description": "반려동물 관련 제품 및 서비스 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0005",
-        "0009",
-        "0026"
-      ]
+      "name": "사물인터넷(IOT)",
+      "code": "IOT",
+      "description": "사물인터넷 기술 및 관련 기업들을 모아놓은 테마"
     }
   },
   {
     "model": "stock.theme",
     "pk": 31,
     "fields": {
+      "name": "반려동물",
+      "code": "PET",
+      "description": "반려동물 관련 제품 및 서비스 기업들을 모아놓은 테마"
+    }
+  },
+  {
+    "model": "stock.theme",
+    "pk": 32,
+    "fields": {
       "name": "뷰티의 세계",
       "code": "BTY",
-      "description": "화장품 및 뷰티 관련 기업들을 모아놓은 테마",
-      "api_request_code": [
-        "0008",
-        "0016",
-        "0026"
-      ]
+      "description": "화장품 및 뷰티 관련 기업들을 모아놓은 테마"
     }
   }
 ]

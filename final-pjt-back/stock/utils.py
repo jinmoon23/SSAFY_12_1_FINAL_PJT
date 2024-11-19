@@ -64,23 +64,3 @@ def get_industry_price_series(access_token, industry_code, start_date, end_date)
         raise Exception(f"Request Failed: {str(e)}")
     except Exception as e:
         raise Exception(f"Error: {str(e)}")
-    
-
-def calculate_mbti_score(mbti, theme_code):
-    """MBTI 기반 테마 점수 계산"""
-    mbti_weights = {
-        'I': {'PIN': 0.8, 'AID': 0.9, 'CLD': 0.7},  # 내향형: 핀테크, AI, 클라우드 선호
-        'E': {'CEO': 0.9, 'FRC': 0.8, 'STM': 0.7},  # 외향형: 카리스마CEO, 프랜차이즈, 스트리밍 선호
-        'N': {'VRR': 0.8, 'AID': 0.9, 'MEA': 0.7},  # 직관형: VR, AI, 메타버스 선호
-        'S': {'FRC': 0.8, 'ADC': 0.7, 'UTE': 0.7},  # 감각형: 프랜차이즈, 자율주행차, 언택트 선호
-        'T': {'AID': 0.9, 'SMC': 0.8, 'BAT': 0.7},  # 사고형: AI, 반도체, 배터리 선호
-        'F': {'STM': 0.8, 'FRC': 0.7, 'FSH': 0.7},  # 감정형: 스트리밍, 프랜차이즈, 패션 선호
-        'J': {'PIN': 0.8, 'BAT': 0.7, 'SMC': 0.7},  # 판단형: 핀테크, 배터리, 반도체 선호
-        'P': {'VRR': 0.8, 'MEA': 0.7, 'STM': 0.7}   # 인식형: VR, 메타버스, 스트리밍 선호
-    }
-    
-    score = 0
-    for trait in mbti.upper():
-        if trait in mbti_weights:
-            score += mbti_weights[trait].get(theme_code, 0.3)
-    return score / 4  # MBTI 4개 특성의 평균
