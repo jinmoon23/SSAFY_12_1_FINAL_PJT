@@ -17,7 +17,7 @@ export const useUserInterestStore = defineStore('interest', () => {
       method: 'post',
       url: `${store.API_URL}/api/v1/stock/analyze/`,
       headers: {
-        Authorization: `Token ${store.token}`
+        Authorization: `Bearer ${store.token}`,
       },
       data: {
         mbti: usermbti.value,
