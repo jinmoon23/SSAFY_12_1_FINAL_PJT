@@ -7,6 +7,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     mbti = models.CharField(max_length=4)
     period = models.CharField(max_length=10)
+    token = models.TextField(null=True)
 
     def __str__(self):
         return self.user.username

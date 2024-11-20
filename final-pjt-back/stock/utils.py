@@ -71,17 +71,16 @@ def get_industry_price_series(access_token, industry_code, start_date, end_date)
 
 def get_theme_price_series(access_token, theme_name, start_date, end_date):
     try:
-        
-        # 테마 이름으로 관련 업종 코드들 조회
+        # 테마의 pk로 관련 업종 코드들 조회
         theme = Theme.objects.get(name=theme_name)
         industry_codes = theme.industry_codes.all().values_list('api_request_code', flat=True)
-        
+        print(industry_codes)
         combined_data = {}
         
         # 각 업종별 데이터 수집
         for code in industry_codes:
             data = get_industry_price_series(access_token, code, start_date, end_date)
-            
+            # print(data)
             # 각 날짜별 데이터 통합
             for item in data['data']:
                 date = item['date']
