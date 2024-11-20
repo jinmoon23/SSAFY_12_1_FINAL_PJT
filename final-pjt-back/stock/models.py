@@ -54,7 +54,7 @@ class Stock(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=20)
     description = models.TextField()
-    
+    price = models.IntegerField()
     # Financial fields (예시로 추가된 필드들)
     per = models.DecimalField(max_digits=10, decimal_places=2)  # Price to Earnings Ratio
     pbr = models.DecimalField(max_digits=10, decimal_places=2)  # Price to Book Ratio

@@ -55,7 +55,6 @@ def analyze(request):
                         interest=interest
                     )
                     theme = Theme.objects.get(name=interest_name)
-                    # stocks = theme.stock_set.all().values_list('name', flat=True)
                     stocks = theme.stock_set.all().values('name', 'code')
                     theme_info = {
                     'theme_name': theme.name,
