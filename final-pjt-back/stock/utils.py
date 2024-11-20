@@ -11,7 +11,8 @@ def get_industry_price_series(access_token, industry_code, start_date, end_date)
         end_date (str): 조회 종료일자 (YYYYMMDD)
     
     Returns:
-        dict: 상태 및 시계열 데이터를 포함한 JSON 형태의 응답
+        dict: 상태 및 시계열 데이터를 포함한 JSON
+          형태의 응답
     """
     
     base_url = settings.KIS_BASE_URL
