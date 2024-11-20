@@ -3,9 +3,9 @@
     <h1>종목 차트 실시간으로 그리는 페이지</h1>
   </div>
     <!-- 입력 코드가 국내면 -->
-    <!-- <DomesticStockChart/> -->
+    <DomesticStockChart/>
     <!-- 입력 코드가 해외면 -->
-    <UsaStockChart/>
+    <!-- <UsaStockChart/> -->
 </template>
 
 <script setup>

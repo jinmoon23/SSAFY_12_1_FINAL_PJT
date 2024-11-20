@@ -7,6 +7,7 @@ export const useAuthStore = defineStore('auth', () => {
   const API_URL = 'http://127.0.0.1:8000'
   const token = ref(null)
   const router = useRouter()
+  const websocketToken = ref(null)
   
   const signUp = function (payload) {
     const {username, password1, password2, email, nickname } = payload
@@ -49,6 +50,19 @@ export const useAuthStore = defineStore('auth', () => {
       .catch((err) => {
         console.log(err)
       })
+
+    axios({
+      method:'get',
+      url: `${API_URL}/api/v1/token/`,
+    })
+      .then((res) => {
+        // 받아온 토큰 데이터 출력
+        console.log(res)
+        // websocketToken.value = res.data.websocket_token
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   const logOut = function () {
@@ -74,6 +88,6 @@ export const useAuthStore = defineStore('auth', () => {
 
   const isAuthenticated = computed(() => !!token.value)
 
-  return { signUp, logIn, logOut, API_URL, token, isAuthenticated }
+  return { signUp, logIn, logOut, API_URL, token, isAuthenticated, websocketToken }
 },{persist: true}
 )
