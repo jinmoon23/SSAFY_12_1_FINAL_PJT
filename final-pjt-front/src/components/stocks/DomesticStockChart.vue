@@ -25,9 +25,7 @@ const chartOptions = ref({
     animations: {
       enabled: true,
       easing: 'linear',
-      dynamicAnimation: {
-        speed: 1000
-      }
+
     },
     toolbar: {
       show: false

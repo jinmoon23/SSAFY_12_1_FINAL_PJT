@@ -5,6 +5,7 @@
         <RouterLink :to="{ name: 'HomeView' }" class="nav-link">Home</RouterLink>
         <RouterLink v-if="!isLoggedIn" :to="{ name: 'LogInView' }" class="nav-link">로그인</RouterLink>
         <RouterLink v-if="!isLoggedIn" :to="{ name: 'SignUpView' }" class="nav-link">회원가입</RouterLink>
+        <RouterLink v-if="isLoggedIn" :to="{ name: 'UserSelectView' }" class="nav-link">테마추천(테스트용)</RouterLink>
         <button v-if="isLoggedIn" @click="logOut" class="nav-link btn btn-link">로그아웃</button>
       </div>
     </nav>

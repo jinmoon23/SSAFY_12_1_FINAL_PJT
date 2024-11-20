@@ -35,6 +35,7 @@ export const useUserInterestStore = defineStore('interest', () => {
         // 추천 테마 6개 리스트 반환
 
         recommendthemes.value = res.data.recommended_themes
+        console.log(res.data)
 
         // 테마리스트페이지로 이동
         router.push({ name: 'ThemeListView'})
@@ -47,5 +48,6 @@ export const useUserInterestStore = defineStore('interest', () => {
   }
 
   return {analyze, usermbti, userinterest, userperiod, recommendthemes}
-},{persist: true}
+}
+// ,{persist: true}
 )

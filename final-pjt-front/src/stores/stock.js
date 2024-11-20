@@ -7,6 +7,8 @@ import { useAuthStore } from './auth'
 export const useStockStore = defineStore('stock', () => {
   const store = useAuthStore()
   const todaydate = ref(null) // YYYYMMDD
+  const stocklist = ref([])
+  const chartdata = ref([])
 
   const getStockChart = function (themename) {
     axios({
@@ -23,12 +25,15 @@ export const useStockStore = defineStore('stock', () => {
     })
       .then((res) => {
         console.log(res.data)
+        stocklist.value = res.data.theme_info.stocks
+        chartdata.value = res.data.chartdata
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
-  return {getStockChart, todaydate}
-},{persist: true}
+  return {getStockChart, todaydate, stocklist, chartdata}
+}
+// ,{persist: true}
 )
