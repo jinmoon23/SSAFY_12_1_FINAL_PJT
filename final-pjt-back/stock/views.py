@@ -16,8 +16,6 @@ import json
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-# 프론트에 필요한 토큰 준비
-
 
 # CSRF 보호 비활성화
 @csrf_exempt
@@ -29,18 +27,20 @@ def analyze(request):
         try:
             data = json.loads(request.body)
             user = request.user
-            
+
             # UserProfile 처리
             try:
                 user_profile = UserProfile.objects.get(user=user)
                 user_profile.mbti = data.get('mbti')
                 user_profile.period = data.get('period')
+                user_profile.token = get_access_token()
                 user_profile.save()
             except UserProfile.DoesNotExist:
                 user_profile = UserProfile.objects.create(
                     user=user,
                     mbti=data.get('mbti'),
-                    period=data.get('period')
+                    period=data.get('period'),
+                    token = get_access_token()
                 )
             
             # Interest 처리
@@ -110,8 +110,10 @@ def get_token(request):
 @api_view(['POST'])
 def draw_theme_chart(request):
     try:
-        access_token = get_access_token()
+        user = request.user
         data = request.data
+        user_profile = UserProfile.objects.get(user=user)
+        access_token = user_profile.token
         theme_name = data.get('theme_name')
         end_date = data.get('end_date')
         # end_date를 datetime 객체로 변환
