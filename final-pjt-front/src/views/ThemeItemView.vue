@@ -18,7 +18,7 @@ import { useStockStore } from '@/stores/stock'
 import { useRoute } from 'vue-router'
 import ThemeChart from '@/components/stocks/ThemeChart.vue'
 import ThemeStockList from '@/components/stocks/ThemeStockList.vue'
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
 // axios post 요청 변수
 
@@ -27,9 +27,12 @@ const store = useStockStore()
 const theme_name = route.params.id
 const currentDate = new Date()
 
+// 페이지 접속시 store 호출하면 theme 데이터 업데이트 됨
 onMounted(() => {
   store.todaydate = `${currentDate.getFullYear()}${currentDate.getMonth()+1}${currentDate.getDate()}`
   store.getStockChart(theme_name)
+
+  console.log(store)
 })
 
 

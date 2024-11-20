@@ -26,7 +26,7 @@ export const useStockStore = defineStore('stock', () => {
       .then((res) => {
         console.log(res.data)
         stocklist.value = res.data.theme_info.stocks
-        chartdata.value = res.data.chartdata
+        chartdata.value = res.data.chart_data
       })
       .catch((err) => {
         console.log(err)
