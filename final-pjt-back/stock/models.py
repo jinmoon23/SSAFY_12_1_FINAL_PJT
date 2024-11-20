@@ -7,6 +7,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     mbti = models.CharField(max_length=4)
     period = models.CharField(max_length=10)
+    token = models.TextField(null=True)
 
     def __str__(self):
         return self.user.username
@@ -15,6 +16,8 @@ class Theme(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
     code = models.CharField(max_length=6)
+    api_request_code = models.CharField(max_length=20, null=True, blank=True)
+    industry_codes = models.ManyToManyField('IndustryCode', related_name='themes')
 
 class Interest(models.Model):
     name = models.CharField(max_length=30)
@@ -51,7 +54,7 @@ class Stock(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=20)
     description = models.TextField()
-    
+    price = models.IntegerField()
     # Financial fields (예시로 추가된 필드들)
     per = models.DecimalField(max_digits=10, decimal_places=2)  # Price to Earnings Ratio
     pbr = models.DecimalField(max_digits=10, decimal_places=2)  # Price to Book Ratio

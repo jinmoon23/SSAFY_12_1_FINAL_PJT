@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>실시간 주가 차트</h1>
+    <h1>실시간 주가 차트 - 해외주식</h1>
     <apexchart
       width="800"
       height="400"
@@ -12,8 +12,10 @@
 </template>
 
 <script setup>
+import { useAuthStore } from '@/stores/auth'
 import { ref, onMounted, onUnmounted } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
+const authStore = useAuthStore()
 
 const MAX_DATA_POINTS = 50
 // const chartData = ref([])
@@ -119,7 +121,7 @@ const sendMessage = () => {
   if (socket.value && socket.value.readyState === WebSocket.OPEN) {
     socket.value.send(JSON.stringify({
       header: {
-        approval_key: 'e15f5245-d5b3-40f2-85f0-630792072ff3',
+        approval_key: authStore.websocketToken,
         custtype: "P",
         tr_type: "1",
         content_type: "utf-8"

@@ -1,134 +1,120 @@
 <template>
   <div>
-    <h1>실시간 주가 차트</h1>
-    <div class="card-body">
-      <div class="tab-content p-0">
-        <div class="chart tab-pane active">
-          <Line 
-            v-if="chartData"
-            :data="chartData"
-            :options="chartOptions"
-          />
-        </div>
-      </div>
-    </div>
+    <h1>실시간 주가 차트 - 국내주식</h1>
+    <apexchart
+      width="800"
+      height="400"
+      type="line"
+      :options="chartOptions"
+      :series="series"
+    ></apexchart>
   </div>
 </template>
 
 <script setup>
+import { useAuthStore } from '@/stores/auth'
 import { ref, provide, onMounted, onUnmounted } from 'vue'
+import VueApexCharts from 'vue3-apexcharts'
+const authStore = useAuthStore()
 
+const MAX_DATA_POINTS = 50
 
-//////////////// 차트 그리는 코드
+const chartOptions = ref({
+  chart: {
+    id: 'realtime-stock-chart',
+    animations: {
+      enabled: true,
+      easing: 'linear',
 
-import { Line } from 'vue-chartjs'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  LineElement,
-  PointElement,
-  CategoryScale,
-  LinearScale
-} from 'chart.js'
-
-
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  LineElement,
-  PointElement,
-  CategoryScale,
-  LinearScale
-)
-
-// 차트 데이터 관리
-const timeLabels = ref([])
-const priceData = ref([])
-
-// 최대 데이터 포인트 수
-const MAX_DATA_POINTS = 30
-
-// 차트 데이터 계산
-const chartData = computed(() => ({
-  labels: timeLabels.value,
-  datasets: [
-    {
-      label: '주가',
-      borderColor: '#36A2EB',
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      data: priceData.value,
-      tension: 0.4
+    },
+    toolbar: {
+      show: false
+    },
+    zoom: {
+      enabled: false
     }
-  ]
-}))
-
-// 차트 옵션
-const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  scales: {
-    y: {
-      beginAtZero: false,
-      ticks: {
-        callback: value => `${value}원`
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 2,
+    lineCap: 'round',
+  },
+  title: {
+    text: '실시간 주가',
+    align: 'left',
+  },
+  xaxis: {
+    type: 'datetime',  // 시간 데이터를 위해 datetime으로 변경
+    range: MAX_DATA_POINTS * 100, // 표시할 시간 범위
+    labels: {
+      datetimeFormatter: {
+        hour: 'HH:mm:ss'
       }
     }
   },
-  plugins: {
-    legend: {
-      display: true
-    },
-    tooltip: {
-      callbacks: {
-        label: context => `${context.parsed.y}원`
-      }
+  yaxis: {
+    labels: {
+      formatter: (value) => value.toLocaleString()
+    }
+  },
+  tooltip: {
+    x: {
+      format: 'HH:mm:ss'
     }
   }
-}
+})
 
-//////////////// 당일 시세 조회 코드
+const series = ref([{
+  name: '주가',
+  data: []
+}])
 
-// axios 로 백에서 받아오기,,,
 
 //////////////// 실시간 웹소켓 통신 데이터 받는 코드
+
 
 const socket = ref(null)
 let isRunning = true
 
-const currentTime = ref(null)
-const currentPrice = ref(null)
-
-// 받은 데이터 처리..!!
 const stockspurchaseDomestic = (data) => {
-  const pValue = data.split('^');
-
-  currentTime.value = pValue[1]
-  currentPrice.value = parseInt(pValue[2])
-
-  // 차트 데이터 업데이트
-  updateChartData(time, price)
-
+  const pValue = data.split('^')
+  const price = parseInt(pValue[2])
+  // 시간 문자열을 타임스탬프로 변환
+  const timestamp = new Date().getTime()
+  
+  // NaN 체크 및 처리
+  if (isNaN(price)) {
+    console.warn('Invalid price value received:', pValue[11])
+    return null // 유효하지 않은 데이터는 null 반환
+  }
+  
   return {
-    current_time: pValue[1],
-    current_price: pValue[2]
-  };
-};
+    timestamp: timestamp,
+    price: price
+  }
+}
 
-// 차트 데이터 업데이트 함수
-const updateChartData = (time, price) => {
-  // 시간 레이블 추가
-  timeLabels.value.push(time)
-  priceData.value.push(price)
+const updateChartData = (newData) => {
+  // null 체크 추가
+  if (!newData || newData.price === null) {
+    return // 유효하지 않은 데이터는 무시
+  }
 
-  // 최대 데이터 포인트 수를 유지
-  if (timeLabels.value.length > MAX_DATA_POINTS) {
-    timeLabels.value.shift()
-    priceData.value.shift()
+  // 데이터 포인트를 추가하기 전에 유효성 검사
+  if (isFinite(newData.price)) {
+    // 데이터 포인트를 [timestamp, price] 형태로 추가
+    series.value[0].data.push([newData.timestamp, newData.price])
+
+    // 최대 데이터 포인트 수 유지
+    if (series.value[0].data.length > MAX_DATA_POINTS) {
+      series.value[0].data.shift()
+    }
+
+    // 시리즈 강제 업데이트
+    series.value = [{
+      name: '주가',
+      data: [...series.value[0].data]
+    }]
   }
 }
 
@@ -136,7 +122,7 @@ const sendMessage = () => {
   if (socket.value && socket.value.readyState === WebSocket.OPEN) {
     socket.value.send(JSON.stringify({
       header: {
-        approval_key: '9cf04d10-0346-4c6c-8275-eeb356afe439',
+        approval_key: authStore.websocketToken,
         custtype: "P",
         tr_type: "1",
         content_type: "utf-8"
@@ -149,40 +135,45 @@ const sendMessage = () => {
       }
     }))
   }
-  console.log('메세지 전송 완료')
 }
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
+
 const receiveMessage = () => {
   return new Promise((resolve) => {
     socket.value.onmessage = (event) => {
-      console.log('Raw data:', event.data)
-      const processedData = stockspurchaseDomestic(event.data)
-      console.log('Processed data:', processedData)
-      resolve(processedData)
+      try {
+        const processedData = stockspurchaseDomestic(event.data)
+        if (processedData) { // null이 아닐 때만 처리
+          updateChartData(processedData)
+          console.log('Processed Data:', processedData)
+        }
+        resolve(processedData)
+      } catch (error) {
+        console.error('Data processing error:', error)
+        resolve(null)
+      }
     }
   })
 }
 
 const dataFetchLoop = async () => {
+  sendMessage()
   while (isRunning) {
-    sendMessage()
     await receiveMessage()
-    await sleep(3000) // 5초 대기
+    await sleep(3000) // 3초 대기
   }
 }
 
 
 onMounted(() => {
+  // console.log(authStore.websocketToken)
   socket.value = new WebSocket('ws://ops.koreainvestment.com:21000')
-
-  // 실시간으로 받는 데이터 
 
   socket.value.onopen = () => {
     console.log('WebSocket 연결이 열렸습니다.')
     dataFetchLoop()
-    // sendMessage() // 연결이 열린 후 메시지 전송
   }
 
   socket.value.onerror = (error) => {
@@ -204,7 +195,4 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.chart {
-  height: 400px;
-}
 </style>

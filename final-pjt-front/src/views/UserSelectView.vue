@@ -37,6 +37,8 @@ const store = useUserInterestStore()
 
 const sendUserData = function () {
   store.analyze()
+
+  
 }
 
 </script>

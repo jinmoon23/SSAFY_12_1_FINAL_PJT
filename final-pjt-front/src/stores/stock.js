@@ -6,23 +6,34 @@ import { useAuthStore } from './auth'
 
 export const useStockStore = defineStore('stock', () => {
   const store = useAuthStore()
+  const todaydate = ref(null) // YYYYMMDD
+  const stocklist = ref([])
+  const chartdata = ref([])
 
-  // 장고에서 받아오는 한국투자증권 토큰
-  const requestToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjkyMzU0N2ZkLWU2OGUtNGM1Mi05ZDBkLWVlYjBmMGNkMzcyMiIsInByZHRfY2QiOiIiLCJpc3MiOiJ1bm9ndyIsImV4cCI6MTczMjA2NjE0MCwiaWF0IjoxNzMxOTc5NzQwLCJqdGkiOiJQU09NTUdqNTdvcHY0c2FEaUJlbFNwOXVzYXI5THRYZnVrbzIifQ.a3bZcX4wBLPwm6mcMAjGzDU7wFTqwJcf7ADAv3cVyIkDSuZNFYRfrM3DyjSpNwRQuU9aJENN5JzE46v8BvunqA'
-
-  const getStockChart = function () {
+  const getStockChart = function (themename) {
     axios({
-      // 백에서 받아오기
+      //백에서 받아오기
+      method: 'post',
+      url: `${store.API_URL}/api/v1/stock/indus_chart/`,
+      headers: {
+        Authorization: `Bearer ${store.token}`,
+      },
+      data: {
+        theme_name : themename,
+        end_date : todaydate.value
+      },
     })
       .then((res) => {
-        console.log(res)
+        console.log(res.data)
+        stocklist.value = res.data.theme_info.stocks
+        chartdata.value = res.data.chart_data
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
-
-  return {getStockChart}
-},{persist: true}
+  return {getStockChart, todaydate, stocklist, chartdata}
+}
+// ,{persist: true}
 )

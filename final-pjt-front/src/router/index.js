@@ -42,7 +42,7 @@ const router = createRouter({
       component: ThemeListView,
     },
     {
-      path: '/themeitem',
+      path: '/themeitem/:id',
       name: 'ThemeItemView',
       component: ThemeItemView,
     },
