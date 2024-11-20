@@ -1,7 +1,7 @@
 <template>
   <div>
     <apexchart
-      width="800"
+      width="1000"
       height="400"
       type="line"
       :options="chartOptions"
@@ -32,7 +32,9 @@ const chartOptions = {
   },
   stroke: {
     curve: 'smooth', // 부드러운 곡선
-    width: 2 // 선 굵기
+    width: 3,
+    lineCap: 'round',
+    smoothing: 0.2 
   },
   xaxis: {
     labels: {
@@ -61,9 +63,9 @@ const chartOptions = {
 // 차트 데이터 설정
 const series = computed(() => [{
   name: 'Stock Price',
-  data: stockStore.stocklist.map(item => ({
-    x: item.time,
-    y: item.price
+  data: stockStore.chartdata.map(item => ({
+    x: item.date,
+    y: item.average_close
   }))
 }])
 </script>

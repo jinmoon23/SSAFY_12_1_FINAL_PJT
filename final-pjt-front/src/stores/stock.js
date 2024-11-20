@@ -9,6 +9,7 @@ export const useStockStore = defineStore('stock', () => {
   const todaydate = ref(null) // YYYYMMDD
   const stocklist = ref([])
   const chartdata = ref([])
+  const themeinfo = ref({})
 
   const getStockChart = function (themename) {
     axios({
@@ -27,13 +28,15 @@ export const useStockStore = defineStore('stock', () => {
         console.log(res.data)
         stocklist.value = res.data.theme_info.stocks
         chartdata.value = res.data.chart_data
+        themeinfo.value = res.data.theme_info
+        console.log(themeinfo.value)
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
-  return {getStockChart, todaydate, stocklist, chartdata}
+  return {getStockChart, todaydate, chartdata, stocklist, themeinfo}
 }
 // ,{persist: true}
 )
