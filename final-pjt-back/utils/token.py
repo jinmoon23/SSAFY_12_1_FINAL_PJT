@@ -5,6 +5,7 @@ import json
 from datetime import datetime, timedelta
 from django.conf import settings
 from dotenv import load_dotenv, set_key
+import time
 
 def get_access_token():
     """
@@ -76,3 +77,17 @@ def get_access_token():
     except Exception as e:
         print(f"General Error: {str(e)}")  # 디버깅을 위한 출력
         raise Exception(f"토큰 발급 중 오류 발생: {str(e)}")
+    
+
+def get_access_to_websocket():
+    url = 'https://openapi.koreainvestment.com:9443'
+    headers = {"content-type": "application/json"}
+    body = {"grant_type": "client_credentials",
+            "appkey": settings.KIS_APP_KEY,
+            "secretkey": settings.KIS_APP_SECRET}
+    PATH = "oauth2/Approval"
+    URL = f"{url}/{PATH}"
+    time.sleep(0.05)
+    res = requests.post(URL, headers=headers, data=json.dumps(body))
+    approval_key = res.json()["approval_key"]
+    return approval_key
