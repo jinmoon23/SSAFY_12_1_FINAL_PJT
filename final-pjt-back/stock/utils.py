@@ -194,11 +194,15 @@ def get_current_us_stock_price(access_token, stock_code):
         response.raise_for_status()
         data = response.json()
         
-        if data['rt_cd'] == '0':
-            return float(data['output']['last'])  # 현재가 반환
+        if data['rt_cd'] == '0' and 'output' in data and 'last' in data['output']:
+            last_price = data['output']['last']
+            if last_price and last_price.strip():
+                return float(last_price)
+            else:
+                raise Exception(f"Invalid price data for stock {stock_code}: {last_price}")
         else:
-            raise Exception(f"API Error: {data['msg1']}")
+            raise Exception(f"API Error: {data.get('msg1', 'Unknown error')}")
             
     except Exception as e:
         print(f"Error getting price for US stock {stock_code}: {str(e)}")
-        return 0  # 에러 발생 시 0 반환
+        return 0

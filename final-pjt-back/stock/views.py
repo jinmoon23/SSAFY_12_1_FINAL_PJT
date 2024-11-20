@@ -1,5 +1,4 @@
 from django.shortcuts import render
-# from django.http import JsonResponse
 from rest_framework.response import Response
 from .serializers import ThemeSerializer
 from .utils import get_industry_price_series, get_theme_price_series, get_current_stock_price, get_current_us_stock_price
@@ -33,10 +32,7 @@ def analyze(request):
                 user_profile = UserProfile.objects.get(user=user)
                 user_profile.mbti = data.get('mbti')
                 user_profile.period = data.get('period')
-                
-                # 기존 토큰이 유효한지 확인 후 필요 시 갱신
-                # if not is_token_valid(user_profile.token):
-                #     user_profile.token = get_access_token()
+                user_profile.token = get_access_token()
                 
                 user_profile.save()
             except UserProfile.DoesNotExist:
@@ -70,7 +66,11 @@ def analyze(request):
                                 print(stock.code)
                                 current_price = get_current_stock_price(user_profile.token, stock.code)
                             else:
-                                current_price = get_current_us_stock_price(user_profile.token, stock.code) * 1391.50
+                                current_price = get_current_us_stock_price(user_profile.token, stock.code)
+                                if current_price > 0:
+                                    current_price = current_price * 1391.50
+                                else:
+                                    current_price = 0
 
                             # 가격이 변경되었을 때만 저장
                             if current_price > 0 and stock.price != current_price:  
@@ -111,7 +111,16 @@ def analyze(request):
 
                     for stock in stocks:
                         try:
-                            current_price = get_current_stock_price(user_profile.token, stock.code)
+                            if stock.code.isdecimal():
+                                print(stock.code)
+                                current_price = get_current_stock_price(user_profile.token, stock.code)
+                            else:
+                                current_price = get_current_us_stock_price(user_profile.token, stock.code)
+                                if current_price > 0:
+                                    current_price = current_price * 1391.50
+                                else:
+                                    current_price = 0
+                                # current_price = get_current_us_stock_price(user_profile.token, stock.code) * 1391.50
                             if current_price > 0 and stock.price != current_price:  
                                 stock.price = current_price
                                 stock.save()

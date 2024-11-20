@@ -1825,22 +1825,6 @@
       },
       {
         "model": "stock.stock",
-        "pk": 117,
-        "fields": {
-          "name": "롯데이노베이트",
-          "code": "347860",
-          "description": "메타버스 플랫폼 개발 기업",
-          "theme": 10,
-          "price": 0,
-          "per": "0.00",
-          "pbr": "0.00",
-          "consensus": "",
-          "eps": "0.00",
-          "logo_img": ""
-        }
-      },
-      {
-        "model": "stock.stock",
         "pk": 118,
         "fields": {
           "name": "메타플랫폼스",
@@ -2641,22 +2625,6 @@
       },
       {
         "model": "stock.stock",
-        "pk": 171,
-        "fields": {
-          "name": "SOOP",
-          "code": "020760",
-          "description": "음원 스트리밍 서비스",
-          "theme": 16,
-          "price": 0,
-          "per": "0.00",
-          "pbr": "0.00",
-          "consensus": "",
-          "eps": "0.00",
-          "logo_img": ""
-        }
-      },
-      {
-        "model": "stock.stock",
         "pk": 172,
         "fields": {
           "name": "SK텔레콤",
@@ -3286,38 +3254,6 @@
           "name": "크래프톤",
           "code": "259960",
           "description": "게임 플랫폼",
-          "theme": 20,
-          "price": 0,
-          "per": "0.00",
-          "pbr": "0.00",
-          "consensus": "",
-          "eps": "0.00",
-          "logo_img": ""
-        }
-      },
-      {
-        "model": "stock.stock",
-        "pk": 213,
-        "fields": {
-          "name": "컬리",
-          "code": "042662",
-          "description": "이커머스 플랫폼",
-          "theme": 20,
-          "price": 0,
-          "per": "0.00",
-          "pbr": "0.00",
-          "consensus": "",
-          "eps": "0.00",
-          "logo_img": ""
-        }
-      },
-      {
-        "model": "stock.stock",
-        "pk": 214,
-        "fields": {
-          "name": "우아한형제들",
-          "code": "278940",
-          "description": "배달 플랫폼",
           "theme": 20,
           "price": 0,
           "per": "0.00",
