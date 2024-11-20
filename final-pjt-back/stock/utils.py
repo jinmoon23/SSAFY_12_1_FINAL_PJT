@@ -1,5 +1,6 @@
 import requests
 from django.conf import settings
+from .models import Theme
 
 def get_industry_price_series(access_token, industry_code, start_date, end_date):
     """
@@ -63,5 +64,56 @@ def get_industry_price_series(access_token, industry_code, start_date, end_date)
             
     except requests.exceptions.RequestException as e:
         raise Exception(f"Request Failed: {str(e)}")
+    except Exception as e:
+        raise Exception(f"Error: {str(e)}")
+
+
+
+def get_theme_price_series(access_token, theme_name, start_date, end_date):
+    try:
+        
+        # 테마 이름으로 관련 업종 코드들 조회
+        theme = Theme.objects.get(name=theme_name)
+        industry_codes = theme.industry_codes.all().values_list('api_request_code', flat=True)
+        
+        combined_data = {}
+        
+        # 각 업종별 데이터 수집
+        for code in industry_codes:
+            data = get_industry_price_series(access_token, code, start_date, end_date)
+            
+            # 각 날짜별 데이터 통합
+            for item in data['data']:
+                date = item['date']
+                if date not in combined_data:
+                    combined_data[date] = {'prices': [], 'changes': []}
+                combined_data[date]['prices'].append(item['close'])
+        
+        # 평균 계산 및 결과 구성
+        result_data = []
+        for date, values in combined_data.items():
+            avg_price = sum(values['prices']) / len(values['prices'])
+            result_data.append({
+                'date': date,
+                'average_close': avg_price,
+            })
+        
+        # 날짜순 정렬
+        result_data.sort(key=lambda x: x['date'])
+        
+        # 등락률 계산
+        for i in range(1, len(result_data)):
+            prev_price = result_data[i-1]['average_close']
+            curr_price = result_data[i]['average_close']
+            change_rate = ((curr_price - prev_price) / prev_price) * 100
+            result_data[i]['change_rate'] = change_rate
+        
+        return {
+            'status': 'success',
+            'data': result_data
+        }
+            
+    except Theme.DoesNotExist:
+        raise Exception(f"Theme '{theme_name}' not found")
     except Exception as e:
         raise Exception(f"Error: {str(e)}")

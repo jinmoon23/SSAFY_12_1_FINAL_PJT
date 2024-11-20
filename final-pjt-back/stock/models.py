@@ -15,6 +15,8 @@ class Theme(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
     code = models.CharField(max_length=6)
+    api_request_code = models.CharField(max_length=20, null=True, blank=True)
+    industry_codes = models.ManyToManyField('IndustryCode', related_name='themes')
 
 class Interest(models.Model):
     name = models.CharField(max_length=30)
