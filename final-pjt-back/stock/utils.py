@@ -154,3 +154,44 @@ def get_current_stock_price(access_token, stock_code):
     except Exception as e:
         print(f"Error getting price for stock {stock_code}: {str(e)}")
         return 0  # 에러 발생 시 0 반환
+    
+def get_current_us_stock_price(access_token, stock_code):
+    """
+    한국투자증권 API를 통해 미국 주식의 현재가를 조회하는 함수
+    Args:
+        access_token (str): 접근 토큰
+        stock_code (str): 종목 코드
+    Returns:
+        float: 현재가 (에러 발생 시 0 반환)
+    """
+    base_url = settings.KIS_BASE_URL
+    path = "/uapi/overseas-price/v1/quotations/price"
+    url = f"{base_url}{path}"
+
+    headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "authorization": f"Bearer {access_token}",
+        "appkey": settings.KIS_APP_KEY,
+        "appsecret": settings.KIS_APP_SECRET,
+        "tr_id": "HHDFS00000300"
+    }
+
+    params = {
+        "AUTH": "",
+        "EXCD": "NYS",  # NAS: 나스닥, NYS: 뉴욕, AMS: 아멕스
+        "SYMB": stock_code,
+    }
+
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()
+        data = response.json()
+        
+        if data['rt_cd'] == '0':
+            return float(data['output']['last'])  # 현재가 반환
+        else:
+            raise Exception(f"API Error: {data['msg1']}")
+            
+    except Exception as e:
+        print(f"Error getting price for US stock {stock_code}: {str(e)}")
+        return 0  # 에러 발생 시 0 반환

@@ -2,7 +2,7 @@ from django.shortcuts import render
 # from django.http import JsonResponse
 from rest_framework.response import Response
 from .serializers import ThemeSerializer
-from .utils import get_industry_price_series, get_theme_price_series
+from .utils import get_industry_price_series, get_theme_price_series, get_current_stock_price, get_current_us_stock_price
 from utils.token import get_access_token,get_access_to_websocket  # 프로젝트 레벨의 token 유틸리티 import
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated
@@ -27,7 +27,7 @@ def analyze(request):
         try:
             data = json.loads(request.body)
             user = request.user
-
+            
             # UserProfile 처리
             try:
                 user_profile = UserProfile.objects.get(user=user)
@@ -40,13 +40,14 @@ def analyze(request):
                     user=user,
                     mbti=data.get('mbti'),
                     period=data.get('period'),
-                    token = get_access_token()
+                    token=get_access_token()
                 )
-            
+
             # Interest 처리
             interest_names = data.get('interest', [])
             UserInterest.objects.filter(user=user).delete()
             themes_info = []
+
             for interest_name in interest_names:
                 try:
                     interest = Interest.objects.get(name=interest_name)
@@ -54,53 +55,80 @@ def analyze(request):
                         user=user,
                         interest=interest
                     )
+
                     theme = Theme.objects.get(name=interest_name)
-                    stocks = theme.stock_set.all().values('name', 'code')
+                    stocks = theme.stock_set.all()
+                    print(stocks)
+                    updated_stocks = []
+
+                    for stock in stocks:
+                        print(stock.code)
+                        if stock.code.isdigit():
+                            current_price = get_current_stock_price(user_profile.token, stock.code)
+                        else:
+                            current_price = get_current_us_stock_price(user_profile.token, stock.code) * 1391.50
+                        if current_price > 0:  # 가격 조회 성공 시에만 업데이트
+                            stock.price = current_price
+                            stock.save()
+                            updated_stocks.append({
+                                "name": stock.name,
+                                "code": stock.code,
+                                "price": current_price
+                            })
+
                     theme_info = {
-                    'theme_name': theme.name,
-                    'stocks': list(stocks),
-                    'description': theme.description,
+                        "theme_name": theme.name,
+                        "stocks": updated_stocks,
+                        "description": theme.description,
                     }
                     themes_info.append(theme_info)
                 except Interest.DoesNotExist:
                     continue
-            
+
             # themes_info 길이 조정
             if len(themes_info) < 6:
-                # 현재 테마 이름 목록
-                current_themes = [theme['theme_name'] for theme in themes_info]
-                
-                # 추가로 필요한 테마 수
+                current_themes = [theme["theme_name"] for theme in themes_info]
                 needed = 6 - len(themes_info)
                 
-                # 현재 없는 테마들 중에서 랜덤하게 선택
                 additional_themes = Theme.objects.exclude(
                     name__in=current_themes
                 ).prefetch_related('stock_set')[:needed]
-                
-                # 추가 테마 정보 수집
+
                 for theme in additional_themes:
-                    # stocks = theme.stock_set.all().values_list('name', flat=True)
-                    stocks = theme.stock_set.all().values('name', 'code')
+                    stocks = theme.stock_set.all()
+                    updated_stocks = []
+
+                    for stock in stocks:
+                        current_price = get_current_stock_price(user_profile.token, stock.code)
+                        if current_price > 0:  # 가격 조회 성공 시에만 업데이트
+                            stock.price = current_price
+                            stock.save()
+                            updated_stocks.append({
+                                "name": stock.name,
+                                "code": stock.code,
+                                "price": current_price
+                            })
+
                     themes_info.append({
-                        'theme_name': theme.name,
-                        'stocks': list(stocks),
-                        'description': theme.description,
+                        "theme_name": theme.name,
+                        "stocks": updated_stocks,
+                        "description": theme.description,
                     })
-            
+
             # 6개로 제한
             themes_info = themes_info[:6]
 
             return JsonResponse({
-                'message': '저장이 완료되었습니다.',
-                'recommended_themes': themes_info
+                "message": "저장이 완료되었습니다.",
+                "recommended_themes": themes_info
             })
-            
+
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "잘못된 JSON 형식입니다."}, status=400)
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status=400)
+            return JsonResponse({"error": str(e)}, status=400)
 
-    return JsonResponse({'error': 'GET 요청은 허용되지 않습니다.'}, status=405)
-
+    return JsonResponse({"error": "GET 요청은 허용되지 않습니다."}, status=405)
 
 def get_token(request):
     websocket_token = get_access_to_websocket()
