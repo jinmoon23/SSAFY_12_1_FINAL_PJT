@@ -13,6 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import UserProfile, UserInterest, Interest, IndustryCode, Theme
 import json
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 # 프론트에 필요한 토큰 준비
 
@@ -111,8 +113,15 @@ def draw_theme_chart(request):
         access_token = get_access_token()
         data = request.data
         theme_name = data.get('theme_name')
-        start_date = data.get('start_date')
         end_date = data.get('end_date')
+        # end_date를 datetime 객체로 변환
+        end_date_obj = datetime.strptime(end_date, '%Y%m%d')
+        
+        # 1년 전 날짜 계산
+        start_date_obj = end_date_obj - relativedelta(years=1)
+        
+        # YYYYMMDD 형식의 문자열로 변환
+        start_date = start_date_obj.strftime('%Y%m%d')
         
         # 테마 정보 가져오기
         theme = Theme.objects.get(name=theme_name)
