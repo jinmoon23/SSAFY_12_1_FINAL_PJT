@@ -1,6 +1,6 @@
 import requests
 from django.conf import settings
-from .models import Theme
+from .models import Theme, IndustryCode
 
 def get_industry_price_series(access_token, industry_code, start_date, end_date):
     """
@@ -71,9 +71,11 @@ def get_industry_price_series(access_token, industry_code, start_date, end_date)
 
 def get_theme_price_series(access_token, theme_name, start_date, end_date):
     try:
-        # 테마의 pk로 관련 업종 코드들 조회
+        # theme.pk == industrycode의 interest_id 만족하는 모든 api_request_code를 리스트에 담기
         theme = Theme.objects.get(name=theme_name)
-        industry_codes = theme.industry_codes.all().values_list('api_request_code', flat=True)
+        industry_codes = IndustryCode.objects.filter(
+            interest_id=theme.pk
+        ).values_list('api_request_code', flat=True)
         print(industry_codes)
         combined_data = {}
         
@@ -116,3 +118,39 @@ def get_theme_price_series(access_token, theme_name, start_date, end_date):
         raise Exception(f"Theme '{theme_name}' not found")
     except Exception as e:
         raise Exception(f"Error: {str(e)}")
+    
+
+def get_current_stock_price(access_token, stock_code):
+    """
+    한국투자증권 API를 통해 주식의 현재가를 조회하는 함수
+    """
+    base_url = settings.KIS_BASE_URL
+    path = "/uapi/domestic-stock/v1/quotations/inquire-price"
+    url = f"{base_url}{path}"
+
+    headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "authorization": f"Bearer {access_token}",
+        "appkey": settings.KIS_APP_KEY,
+        "appsecret": settings.KIS_APP_SECRET,
+        "tr_id": "FHKST01010100"
+    }
+
+    params = {
+        "FID_COND_MRKT_DIV_CODE": "J",
+        "FID_INPUT_ISCD": stock_code,
+    }
+
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()
+        data = response.json()
+        
+        if data['rt_cd'] == '0':
+            return float(data['output']['stck_prpr'])  # 현재가 반환
+        else:
+            raise Exception(f"API Error: {data['msg1']}")
+            
+    except Exception as e:
+        print(f"Error getting price for stock {stock_code}: {str(e)}")
+        return 0  # 에러 발생 시 0 반환
