@@ -90,4 +90,5 @@ def get_access_to_websocket():
     time.sleep(0.05)
     res = requests.post(URL, headers=headers, data=json.dumps(body))
     approval_key = res.json()["approval_key"]
+    print(approval_key)
     return approval_key

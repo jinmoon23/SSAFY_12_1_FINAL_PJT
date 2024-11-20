@@ -100,12 +100,9 @@ def analyze(request):
 
 
 def get_token(request):
-    w_token =  get_access_to_websocket()
-    a_token = get_access_token()
-    return [{
-        'websocketToken': w_token,
-        'accessToken': a_token,
-    }]
+    websocket_token = get_access_to_websocket()
+    # a_token = get_access_token()
+    return JsonResponse({'websocket_token': websocket_token})
 
 def draw_theme_Chart(request):
     # axios 통신 테스트를 위함
