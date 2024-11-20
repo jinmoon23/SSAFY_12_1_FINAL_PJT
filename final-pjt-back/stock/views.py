@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from .utils import get_industry_price_series
+# from django.http import JsonResponse
+from rest_framework.response import Response
+from .serializers import ThemeSerializer
+from .utils import get_industry_price_series, get_theme_price_series
 from utils.token import get_access_token,get_access_to_websocket  # 프로젝트 레벨의 token 유틸리티 import
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated
@@ -103,27 +105,42 @@ def get_token(request):
     websocket_token = get_access_to_websocket()
     return JsonResponse({'websocket_token': websocket_token})
 
-def draw_theme_Chart(request):
-    # axios 통신 테스트를 위함
-    data = request.data()
-    print(data)
+@api_view(['POST'])
+def draw_theme_chart(request):
     try:
-        # 기존에 access_token이 있다면 기존의 토큰 계속 사용
         access_token = get_access_token()
+        data = request.data
+        theme_name = data.get('theme_name')
+        start_date = data.get('start_date')
+        end_date = data.get('end_date')
         
-        # API 호출 및 데이터 반환
-        result = get_industry_price_series(
+        # 테마 정보 가져오기
+        theme = Theme.objects.get(name=theme_name)
+        theme_serializer = ThemeSerializer(theme)
+        
+        # 차트 데이터 가져오기
+        chart_data = get_theme_price_series(
             access_token=access_token,
-            industry_code='0021',
-            start_date='20240601',  # YYYYMMDD 형식
-            end_date='20240630'     # YYYYMMDD 형식
+            theme_name=theme_name,
+            start_date=start_date,
+            end_date=end_date
         )
         
-        # API 응답을 그대로 JSON으로 반환
-        return JsonResponse(result)
+        # 응답 데이터 구성
+        response_data = {
+            'theme_info': theme_serializer.data,
+            'chart_data': chart_data['data']
+        }
         
+        return Response(response_data)
+    
+    except Theme.DoesNotExist:
+        return Response({
+            'status': 'error',
+            'message': f"Theme '{theme_name}' not found"
+        }, status=404)
     except Exception as e:
-        return JsonResponse({
+        return Response({
             'status': 'error',
             'message': str(e)
         }, status=500)
