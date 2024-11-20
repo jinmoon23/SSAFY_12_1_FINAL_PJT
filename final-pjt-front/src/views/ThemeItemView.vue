@@ -1,6 +1,5 @@
 <template>
   <div class="container mt-5">
-    <h1>테마 1개와 종목 몇개 나열 되는 페이지</h1>
     <p>{{ theme_name }}</p>
     <div>
       <!-- 테마 그래프 작성 -->
