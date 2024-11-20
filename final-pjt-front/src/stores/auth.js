@@ -57,8 +57,8 @@ export const useAuthStore = defineStore('auth', () => {
     })
       .then((res) => {
         // 받아온 토큰 데이터 출력
-        console.log(res)
-        // websocketToken.value = res.data.websocket_token
+        websocketToken.value = res.data.websocket_token
+
       })
       .catch((err) => {
         console.log(err)

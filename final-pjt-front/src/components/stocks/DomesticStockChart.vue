@@ -170,6 +170,7 @@ const dataFetchLoop = async () => {
 
 
 onMounted(() => {
+  // console.log(authStore.websocketToken)
   socket.value = new WebSocket('ws://ops.koreainvestment.com:21000')
 
   socket.value.onopen = () => {
