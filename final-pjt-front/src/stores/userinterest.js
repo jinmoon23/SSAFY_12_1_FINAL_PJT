@@ -6,10 +6,13 @@ import { useAuthStore } from './auth'
 
 export const useUserInterestStore = defineStore('interest', () => {
   const store = useAuthStore()
+  const router = useRouter()
   
   const usermbti = ref(null)
   const userinterest = ref([])
   const userperiod = ref(null)
+
+  const recommendthemes = ref([])
 
   const analyze = function () {
 
@@ -26,12 +29,16 @@ export const useUserInterestStore = defineStore('interest', () => {
       },
     })
       .then((res) => {
-        console.log(res)
         console.log('분석 요청 전송 완료')
-  
+        
         // 응답 데이터 처리
         // 추천 테마 6개 리스트 반환
-        // 토큰 반환
+
+        recommendthemes.value = res.data.recommended_themes
+
+        // 테마리스트페이지로 이동
+        router.push({ name: 'ThemeListView'})
+        // console.log(recommendthemes.value)
 
       })
       .catch((err) => {
@@ -39,6 +46,6 @@ export const useUserInterestStore = defineStore('interest', () => {
       })
   }
 
-  return {analyze, usermbti, userinterest, userperiod}
+  return {analyze, usermbti, userinterest, userperiod, recommendthemes}
 },{persist: true}
 )
