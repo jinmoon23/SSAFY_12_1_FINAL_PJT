@@ -305,7 +305,7 @@ def get_domestic_stock_chartdata_period(access_token, stock_code, period):
         print(f"Error getting price for stock {stock_code}: {str(e)}")
         return []
 
-
+# https://apiportal.koreainvestment.com/apiservice/apiservice-oversea-stock-quotations#L_852d7e45-4f34-418b-b6a1-a4552bbcdf90
 def get_oversea_stock_chartdata_day(access_token,stock_code,excd):
     base_url = settings.KIS_BASE_URL
     path = "/uapi/overseas-price/v1/quotations/inquire-time-itemchartprice"
