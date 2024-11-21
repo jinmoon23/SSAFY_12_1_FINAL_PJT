@@ -239,7 +239,7 @@ def get_domestic_stock_chartdata_day(access_token, stock_code, current_time):
                     key=lambda item: abs(datetime.strptime(item['stck_cntg_hour'], "%H%M%S") - current),
                     default=None
                 )
-                
+
                 if closest_data:
                     chart_data.append({
                         'time': closest_data['stck_cntg_hour'],
