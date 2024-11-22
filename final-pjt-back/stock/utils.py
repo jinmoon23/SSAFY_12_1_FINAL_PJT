@@ -489,6 +489,7 @@ def get_domestic_stock_consensus(access_token, stock_code):
                     'concensus': item["invt_opnn"],
                     'source': item["mbcr_name"]
                 })
+                break
             return consensus_data
         else:
             raise Exception(f"API Error: {data['msg1']}")

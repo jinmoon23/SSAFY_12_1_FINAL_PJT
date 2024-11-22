@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from .utils import get_theme_price_series, get_current_stock_price, get_current_us_stock_price, get_domestic_stock_chartdata_day, get_domestic_stock_chartdata_period, get_oversea_stock_chartdata_day, get_oversea_stock_chartdata_period, get_domestic_stock_main_info, get_domestic_stock_consensus, get_oversea_stock_main_info
 from utils.token import get_access_token,get_access_to_websocket  # 프로젝트 레벨의 token 유틸리티 import
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
 # Create your views here.
 # 혜령 디버깅 추가
@@ -16,7 +16,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import random
 
-
+User = get_user_model()
 # CSRF 보호 비활성화
 # @csrf_exempt
 @api_view(['POST'])
@@ -26,7 +26,6 @@ import random
 def analyze(request):
     if request.method == 'POST':
         try:
-            User = get_user_model()
             data = json.loads(request.body)
             user = request.user
             user_id = user.pk
@@ -164,14 +163,6 @@ def analyze(request):
     return JsonResponse({"error": "GET 요청은 허용되지 않습니다."}, status=405)
 
 def get_token(request):
-    
-    # User = get_user_model()
-    # print(request.user)
-    # user_id = request.user
-    # print(user_id)
-    # user = User.objects.get(id=user_id)
-    # nickname = user.nickname
-    # print(nickname)
     websocket_token = get_access_to_websocket()
     return JsonResponse({'websocket_token': websocket_token})
 
@@ -428,3 +419,59 @@ def get_stock_article_list(stock_code):
             'message': str(e),
             'articles': []
         }
+    
+@api_view(['POST'])
+@csrf_exempt
+@permission_classes([AllowAny])
+def create_stock_article(request):
+    try:
+        data = request.data
+        stock_code = data.get('stock_code')
+        
+        # 1. 주식 정보 확인
+        stock = Stock.objects.filter(code=stock_code).first()
+        if not stock:
+            return JsonResponse({
+                'status': 'error',
+                'message': '존재하지 않는 주식 코드입니다.'
+            })
+            
+        # 2. 게시글 생성에 필요한 데이터 받아오기
+        title = data.get('title')
+        content = data.get('content')
+        
+        # 3. 필수 필드 검증
+        if not all([title, content]):
+            return JsonResponse({
+                'status': 'error',
+                'message': '필수 필드가 누락되었습니다.'
+            })
+        
+        user = request.user
+        user_id = user.pk
+        user_for_article = User.objects.get(id=user_id)
+        
+        
+        # 4. 게시글 생성 (theme는 stock의 theme 사용)
+        article = Article.objects.create(
+            stock=stock,
+            theme=stock.theme,  # stock에 연결된 theme 사용
+            author=user_for_article,
+            title=title,
+            content=content
+        )
+        
+        # 5. 응답 데이터 구성
+        response_data = {
+            'status': 'success',
+            'article_id': article.id,
+            'message': '게시글이 성공적으로 작성되었습니다.'
+        }
+        
+        return JsonResponse(response_data)
+        
+    except Exception as e:
+        return JsonResponse({
+            'status': 'error',
+            'message': str(e)
+        })
