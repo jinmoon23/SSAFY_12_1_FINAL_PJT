@@ -573,9 +573,9 @@ def create_user_interests():
     users = User.objects.all()
     interests = Interest.objects.all()
     
-    # 각 유저당 1~3개의 관심사 랜덤 할당
+    # 각 유저당 3~5개의 관심사 랜덤 할당
     for user in users:
-        interest_count = random.randint(1, 3)
+        interest_count = random.randint(3, 5)
         selected_interests = random.sample(list(interests), interest_count)
         
         for interest in selected_interests:
