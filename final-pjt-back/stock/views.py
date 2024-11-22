@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from .serializers import ThemeSerializer
+from django.contrib.auth import get_user_model
 from .utils import get_theme_price_series, get_current_stock_price, get_current_us_stock_price, get_domestic_stock_chartdata_day, get_domestic_stock_chartdata_period, get_oversea_stock_chartdata_day, get_oversea_stock_chartdata_period, get_domestic_stock_main_info, get_domestic_stock_consensus, get_oversea_stock_main_info
 from utils.token import get_access_token,get_access_to_websocket  # 프로젝트 레벨의 token 유틸리티 import
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -25,8 +26,13 @@ import random
 def analyze(request):
     if request.method == 'POST':
         try:
+            User = get_user_model()
             data = json.loads(request.body)
             user = request.user
+            user_id = user.pk
+            user_for_nickname = User.objects.get(id=user_id)
+            nickname = user_for_nickname.nickname
+            
             
             # UserProfile 처리
             try:
@@ -147,6 +153,7 @@ def analyze(request):
                 "message": "저장이 완료되었습니다.",
                 "recommended_themes": themes_info,
                 "same_theme_names": same_theme_names,
+                "nickname": nickname
             })
 
         except json.JSONDecodeError:
@@ -157,6 +164,14 @@ def analyze(request):
     return JsonResponse({"error": "GET 요청은 허용되지 않습니다."}, status=405)
 
 def get_token(request):
+    
+    # User = get_user_model()
+    # print(request.user)
+    # user_id = request.user
+    # print(user_id)
+    # user = User.objects.get(id=user_id)
+    # nickname = user.nickname
+    # print(nickname)
     websocket_token = get_access_to_websocket()
     return JsonResponse({'websocket_token': websocket_token})
 
@@ -369,7 +384,6 @@ def get_same_mbti_theme(request):
     
 def get_stock_article_list(stock_code):
     try:
-        print('안뇽!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         # 1. 현재 조회하고 있는 stock 확인
         stock = Stock.objects.filter(code=stock_code).first()
         
