@@ -402,8 +402,8 @@ def get_oversea_stock_chartdata_period(access_token, stock_code, period):
             for item in data['output2']:
                 chart_data.append({
                     # 혜령 : 미국주식 차트 불러올 시 date, khms 여기서 에러 발생하는중
-                    'date': item['khms'],
-                    'clpr': float(item['last'])
+                    'date': item['stck_bsop_date'],
+                    'clpr': float(item['ovrs_nmix_prpr'])
                 })
             return chart_data
         else:
