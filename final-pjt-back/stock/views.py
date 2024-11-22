@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from .serializers import ThemeSerializer
 from .utils import get_theme_price_series, get_current_stock_price, get_current_us_stock_price, get_domestic_stock_chartdata_day, get_domestic_stock_chartdata_period, get_oversea_stock_chartdata_day, get_oversea_stock_chartdata_period, get_domestic_stock_main_info, get_domestic_stock_consensus, get_oversea_stock_main_info
@@ -18,7 +17,7 @@ import random
 
 
 # CSRF 보호 비활성화
-@csrf_exempt
+# @csrf_exempt
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 @authentication_classes([JWTAuthentication])
@@ -120,7 +119,7 @@ def analyze(request):
                                     current_price = current_price * 1391.50
                                 else:
                                     current_price = 0
-                                # current_price = get_current_us_stock_price(user_profile.token, stock.code) * 1391.50
+
                             if current_price > 0 and stock.price != current_price:  
                                 stock.price = current_price
                                 stock.save()
@@ -133,7 +132,7 @@ def analyze(request):
                         except Exception as e:
                             print(f"종목 {stock.code}의 가격 조회 실패: {e}")
                             continue
-
+                    
                     themes_info.append({
                         "theme_name": theme.name,
                         "stocks": updated_stocks,
@@ -142,10 +141,12 @@ def analyze(request):
 
             # 6개로 제한
             themes_info = themes_info[:6]
-
+            # 
+            same_theme_names = get_same_mbti_theme(request)
             return JsonResponse({
                 "message": "저장이 완료되었습니다.",
-                "recommended_themes": themes_info
+                "recommended_themes": themes_info,
+                "same_theme_names": same_theme_names,
             })
 
         except json.JSONDecodeError:
@@ -300,7 +301,6 @@ def o_chart_period(request):
     user = request.user
     user_profile = UserProfile.objects.get(user=user)
     access_token = user_profile.token
-    print('hello')
     chart_data = get_oversea_stock_chartdata_period(
         access_token=access_token,
         stock_code=stock_code,
@@ -311,6 +311,7 @@ def o_chart_period(request):
         'chart_data':chart_data
     }
     return Response(response_data)
+
 
 def get_same_mbti_theme(request):
     try:
@@ -325,6 +326,7 @@ def get_same_mbti_theme(request):
         ).exclude(
             user=user
         ).values_list('user_id', flat=True)
+
         # 3. 해당 리스트 중 랜덤한 user_id를 선택하여
         # UserInterest 테이블의 interest_id를 반환
         if same_mbti_user_list:
@@ -334,20 +336,29 @@ def get_same_mbti_theme(request):
             ).values_list('interest_id', flat=True)
             # 4. interest_id를 조인키로 
             # Interest 테이블의 name을 리스트에 담아 반환
-            interest_names = Interest.objects.filter(
-                interest_id__in=interest_ids
-            ).values_list('name', flat=True)
-            
-            response_data = {
-                'theme_names':interest_names
+            interest_names = list(Interest.objects.filter(
+                id__in=interest_ids
+            ).values_list('name', flat=True))
+            # 딕셔너리 형태로 반환
+            return {
+                'status': 'success',
+                'interests': interest_names
             }
-
-            return Response(response_data)
         
-        return []
+        return {
+            'status': 'success',
+            'interests': []
+        }
         
     except UserProfile.DoesNotExist:
-        return []
+        return {
+            'status': 'error',
+            'message': 'User profile not found',
+            'interests': []
+        }
     except Exception as e:
-        print(f"Error: {str(e)}")
-        return []
+        return {
+            'status': 'error',
+            'message': str(e),
+            'interests': []
+        }
