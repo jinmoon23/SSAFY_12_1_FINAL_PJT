@@ -220,7 +220,7 @@ def draw_theme_chart(request):
 # 전달받은 시각 이전까지
 @api_view(['POST'])
 def d_chart_and_data(request):
-    print('안뇽')
+
     data = request.data
     stock_code = data.get('stock_code')
     current_time = data.get('current_time')
@@ -233,7 +233,7 @@ def d_chart_and_data(request):
         stock_code=stock_code,
         current_time=current_time,
     )
-    print(type(chart_data))
+
     ratio_data = get_domestic_stock_main_info(
         access_token=access_token,
         stock_code=stock_code,
@@ -421,8 +421,8 @@ def get_stock_article_list(stock_code):
         }
     
 @api_view(['POST'])
-@csrf_exempt
-@permission_classes([AllowAny])
+# @csrf_exempt
+# @permission_classes([IsAuthenticated])
 def create_stock_article(request):
     try:
         data = request.data
@@ -450,7 +450,6 @@ def create_stock_article(request):
         user = request.user
         user_id = user.pk
         user_for_article = User.objects.get(id=user_id)
-        
         
         # 4. 게시글 생성 (theme는 stock의 theme 사용)
         article = Article.objects.create(
