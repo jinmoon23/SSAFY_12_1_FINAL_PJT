@@ -9,7 +9,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 # 혜령 디버깅 추가
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from .models import UserProfile, UserInterest, Interest, Theme, Stock
+from .models import UserProfile, UserInterest, Interest, Theme, Stock, Article
 import json
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -141,7 +141,7 @@ def analyze(request):
 
             # 6개로 제한
             themes_info = themes_info[:6]
-            # 
+            # 나랑 동일한 mbti의 사람들은 무슨 테마를 추천받았을까?
             same_theme_names = get_same_mbti_theme(request)
             return JsonResponse({
                 "message": "저장이 완료되었습니다.",
@@ -214,6 +214,7 @@ def draw_theme_chart(request):
 # 전달받은 시각 이전까지
 @api_view(['POST'])
 def d_chart_and_data(request):
+    print('안뇽')
     data = request.data
     stock_code = data.get('stock_code')
     current_time = data.get('current_time')
@@ -235,10 +236,13 @@ def d_chart_and_data(request):
         access_token=access_token,
         stock_code=stock_code
     )
+    articles_data = get_stock_article_list(stock_code=stock_code)
+    print(articles_data)
     response_data = {
         'chart_data': chart_data,
         'ratio_data': ratio_data,
-        'consensus_data': consensus_data
+        'consensus_data': consensus_data,
+        'articles_data': articles_data,
     }
     return Response(response_data)
 
@@ -361,4 +365,52 @@ def get_same_mbti_theme(request):
             'status': 'error',
             'message': str(e),
             'interests': []
+        }
+    
+def get_stock_article_list(stock_code):
+    try:
+        print('안뇽!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        # 1. 현재 조회하고 있는 stock 확인
+        stock = Stock.objects.filter(code=stock_code).first()
+        
+        if not stock:
+            return {
+                'status': 'error',
+                'message': 'Stock not found',
+                'articles': []
+            }
+            
+        # 2. stock을 참조하고 있는 article 리스트 조회
+        articles = Article.objects.filter(
+            stock_id=stock.pk
+        ).values(
+            'id',
+            'title',
+            'content',
+            'author__nickname',  # User 모델의 nickname
+            'created_at',
+            'updated_at',
+            'like_article',
+            'theme__name'  # Theme 모델의 name
+        ).order_by('-created_at')  # 최신순 정렬
+        
+        # QuerySet을 리스트로 변환하여 JSON serializable하게 만듦
+        article_list = list(articles)
+        
+        # datetime 객체를 문자열로 변환
+        for article in article_list:
+            article['created_at'] = article['created_at'].strftime('%Y-%m-%d %H:%M:%S')
+            article['updated_at'] = article['updated_at'].strftime('%Y-%m-%d %H:%M:%S')
+        
+        return {
+            'status': 'success',
+            'stock_name': stock.name,
+            'articles': article_list
+        }
+        
+    except Exception as e:
+        return {
+            'status': 'error',
+            'message': str(e),
+            'articles': []
         }
