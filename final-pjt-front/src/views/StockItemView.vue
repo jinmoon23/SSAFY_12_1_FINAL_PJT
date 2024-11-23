@@ -1,134 +1,130 @@
 <template>
   <div class="container-fluid px-4 mt-5">
-    <h1 class="mb-4">{{ stockItemStore.stockInfo.articles_data?.stock_name }}</h1>
-    
-    <!-- 차트와 종목정보 섹션 -->
+    <!-- 종목 헤더 섹션 -->
+    <div class="stock-header mb-4">
+      <h1 class="stock-title">{{ stockItemStore.stockInfo.articles_data?.stock_name }}</h1>
+    </div>
+
     <div class="row gx-4 mb-4">
-      <!-- 차트 섹션 (왼쪽) -->
+      <!-- 차트 섹션 -->
       <div class="col-lg-8">
         <!-- 네비게이션 Pills -->
-        <ul class="nav nav-pills mb-4">
-          <li class="nav-item">
+        <div class="chart-nav-container mb-4">
+          <ul class="nav nav-pills chart-nav">
+            <li class="nav-item">
+              <RouterLink 
+                :to="{ name: 'day', params: { stock_id: stockcode }}" 
+                class="nav-link" 
+                :class="{ active: $route.name === 'day' || !$route.name }"
+                @click="moveDayChart(stockcode)"
+              >일</RouterLink>
+            </li>
+            <li>
             <RouterLink 
-              :to="{ name: 'day', params: { stock_id: stockcode }}" 
-              class="nav-link" 
-              :class="{ active: $route.name === 'day' || !$route.name }"
-              @click="moveDayChart(stockcode)"
-            >일</RouterLink>
-          </li>
-          <li class="nav-item">
+                :to="{ name: 'week', params: { stock_id: stockcode }}" 
+                class="nav-link" 
+                :class="{ active: $route.name === 'week' }"
+                @click="movePeriodChart('W')"
+              >주</RouterLink>
+            </li>
+            <li>
             <RouterLink 
-              :to="{ name: 'week', params: { stock_id: stockcode }}" 
-              class="nav-link"
-              :class="{ active: route.name === 'week' }"
-              @click="movePeriodChart('W')"
-            >주</RouterLink>
-          </li>
-          <li class="nav-item">
+                :to="{ name: 'month', params: { stock_id: stockcode }}" 
+                class="nav-link" 
+                :class="{ active: $route.name === 'month' }"
+                @click="movePeriodChart('1M')"
+              >월</RouterLink>
+            </li>
+            <li>
             <RouterLink 
-              :to="{ name: 'month', params: { stock_id: stockcode }}" 
-              class="nav-link"
-              :class="{ active: route.name === 'month' }"
-              @click="movePeriodChart('1M')"
-            >월</RouterLink>
-          </li>
-          <li class="nav-item">
+                :to="{ name: 'sixmonth', params: { stock_id: stockcode }}" 
+                class="nav-link" 
+                :class="{ active: $route.name === 'sixmonth' }"
+                @click="movePeriodChart('6M')"
+              >6개월</RouterLink>
+            </li>
+            <li>
             <RouterLink 
-              :to="{ name: 'sixmonth', params: { stock_id: stockcode }}" 
-              class="nav-link"
-              :class="{ active: route.name === 'sixmonth' }"
-              @click="movePeriodChart('6M')"
-            >6개월</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink 
-              :to="{ name: 'year', params: { stock_id: stockcode }}" 
-              class="nav-link"
-              :class="{ active: route.name === 'year' }"
-              @click="movePeriodChart('1Y')"
-            >년</RouterLink>
-          </li>
-        </ul>
+                :to="{ name: 'year', params: { stock_id: stockcode }}" 
+                class="nav-link" 
+                :class="{ active: $route.name === 'year' }"
+                @click="movePeriodChart('1Y')"
+              >년</RouterLink>
+            </li>
+          </ul>
+        </div>
         
         <!-- 차트 영역 -->
-        <div class="chart-container">
+        <div class="chart-card">
           <RouterView></RouterView>
         </div>
       </div>
 
-      <!-- 종목 정보 섹션 (오른쪽) -->
+      <!-- 종목 정보 섹션 -->
       <div class="col-lg-4">
-        <div class="stock-info-container">
-          <div v-if="isNaN(stockcode)">
-            <UsaStockInfo/>
-          </div>
-          <div v-else>
-            <DomesticStockInfo/>
-          </div>
+        <div class="info-card">
+          <component :is="isNaN(stockcode) ? UsaStockInfo : DomesticStockInfo"/>
         </div>
       </div>
     </div>
 
+    <!-- 커뮤니티 섹션 -->
+    <div class="community-section mt-5">
+      <div class="community-header">
+        <h3 @click="moveCommunity">실시간 커뮤니티</h3>
+        <button class="write-btn" @click="writeArticle">
+          <i class="bi bi-pencil-fill"></i>
+          새 글 작성
+        </button>
+      </div>
 
-  <!-- 커뮤니티 섹션 -->
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="community-container">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="community-title" @click="moveCommunity">커뮤니티</h3>
-          <button class="btn btn-primary rounded-pill px-4" @click="writeArticle">
-            <i class="bi bi-pencil-fill me-2"></i>글 작성하기
-          </button>
-        </div>
-        
-        <!-- 최신 5개 게시글 -->
-        <div class="articles-list">
-          <div v-for="article in latestArticles" 
-              :key="article.id" 
-              class="article-card">
-            <!-- 작성자 정보 -->
-            <div class="article-user-info">
-              <div class="user-avatar">
-                <img src="" alt="user avatar" class="rounded-circle">
-              </div>
-              <div class="user-details">
-                <span class="user-name">{{ article.author_nickname || '익명' }}</span>
-                <span class="post-time">{{ formatTime(article.created_at) }}</span>
-              </div>
-              <div class="more-options">
-                <i class="bi bi-three-dots-vertical"></i>
+      <!-- 게시글 목록 -->
+      <div class="posts-container">
+        <div v-for="article in latestArticles" 
+            :key="article.id" 
+            class="post-card">
+          <!-- 작성자 프로필 -->
+          <div class="post-header">
+            <div class="profile">
+              <img :src="article.author_nickname ? `/profiles/${article.author_nickname}.jpg` : '/default-avatar.png'" 
+                  alt="프로필" 
+                  class="profile-img">
+              <div class="profile-info">
+                <span class="author">{{ article.author_nickname || '익명' }}</span>
+                <span class="time">{{ formatTime(article.created_at) }}</span>
               </div>
             </div>
-            
-            <!-- 게시글 내용 -->
-            <div class="article-content">
-              <h5 class="mb-2">{{ article.title }}</h5>
-              <p class="article-text">{{ article.content }}</p>
-              <div class="theme-tag">
-                <span class="badge rounded-pill bg-light text-dark">
-                  {{ article.theme_name }}
-                </span>
-              </div>
+            <div class="post-menu">
+              <i class="bi bi-three-dots"></i>
             </div>
-            
-            <!-- 좋아요/댓글 버튼 -->
-            <div class="article-actions">
-              <button class="btn btn-link">
-                <i class="bi bi-heart"></i>
-                <span>좋아요</span>
-              </button>
-              <button class="btn btn-link">
-                <i class="bi bi-chat"></i>
-                <span>댓글</span>
-              </button>
+          </div>
+
+          <!-- 게시글 내용 -->
+          <div class="post-content">
+            <h4>{{ article.title }}</h4>
+            <p>{{ article.content }}</p>
+            <div class="theme-badge">
+              # {{ article.theme__name }}
             </div>
+          </div>
+
+          <!-- 게시글 액션 -->
+          <div class="post-actions">
+            <button class="action-btn">
+              <i class="bi bi-heart"></i>
+              <span>좋아요</span>
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-chat"></i>
+              <span>댓글</span>
+            </button>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
+
 
 <script setup>
 import DomesticStockInfo from '@/components/stocks/DomesticStockInfo.vue'
@@ -175,7 +171,7 @@ stockItemStore.getDayInfo(stockcode, currentTime)
 })
 
 const moveCommunity = function () {
-  router.push({ name: 'CommunityView'})
+  router.push({ name: 'CommunityView', params: {stock_id : stockcode}})
 }
 
 const writeArticle = () => {
@@ -218,129 +214,162 @@ const formatTime = (timestamp) => {
 </script>
 
 <style scoped>
-.container-fluid {
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-.chart-container {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  height: calc(100vh - 250px);
-}
-
-.stock-info-container {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  height: calc(100vh - 250px);
-  overflow-y: auto;
-}
-
-.nav-pills .nav-link {
-  margin-right: 0.5rem;
-  border-radius: 20px;
-  padding: 0.5rem 1.5rem;
-}
-
-.nav-pills .nav-link.active {
-  background-color: #0d6efd;
-}
-
-h1 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-left: 0.5rem;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  border: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.community-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.article-card {
+.stock-header {
   background: white;
-  border-radius: 15px;
   padding: 1.5rem;
-  margin-bottom: 1rem;
+  border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.article-user-info {
+.chart-card, .info-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  height: calc(100vh - 250px);
+}
+
+.period-tabs .nav-link {
+  border-radius: 20px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.community-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.community-header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.write-btn {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.post-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.user-avatar img {
-  width: 40px;
-  height: 40px;
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
-.user-details {
-  margin-left: 0.8rem;
-  flex-grow: 1;
+.profile-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.user-name {
-  display: block;
+.author {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-.post-time {
+.time {
   font-size: 0.8rem;
   color: #666;
 }
 
-.more-options {
+.post-content {
+  margin: 1rem 0;
+}
+
+.theme-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: #f0f2f5;
+  border-radius: 20px;
+  font-size: 0.9rem;
   color: #666;
-  cursor: pointer;
+  margin-top: 0.5rem;
 }
 
-.article-content {
-  margin-bottom: 1rem;
-}
-
-.article-text {
-  color: #444;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-
-.theme-tag {
-  margin-bottom: 0.5rem;
-}
-
-.article-actions {
+.post-actions {
   display: flex;
-  gap: 1rem;
-  border-top: 1px solid #eee;
+  gap: 1.5rem;
   padding-top: 1rem;
+  border-top: 1px solid #eee;
 }
 
-.article-actions .btn-link {
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
   color: #666;
-  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
-.article-actions .btn-link i {
-  margin-right: 0.4rem;
+.action-btn:hover {
+  background-color: #f0f2f5;
+}
+
+.chart-nav-container {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.chart-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-pills .nav-link {
+  color: #495057;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.nav-pills .nav-link.active {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 </style>
