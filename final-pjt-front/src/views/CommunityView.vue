@@ -1,7 +1,7 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-5" v-if="store.articles?.articles_data">
     <div class="community-header">
-      <h1 class="text-center mb-4">커뮤니티</h1>
+      <h1 class="text-center mb-4">{{ store.articles?.articles_data.stock_name }} 주주님들 모이세요!</h1>
       <div class="d-flex justify-content-end mb-4">
         <button class="btn btn-primary rounded-pill px-4">
           <i class="bi bi-pencil-fill me-2"></i>글 작성하기
@@ -11,7 +11,7 @@
 
     <!-- 게시글 목록 -->
     <div class="posts-container">
-      <div v-for="article in store.articles" :key="article.id" class="post-card">
+      <div v-for="article in store.articles.articles_data.articles" :key="article.id" class="post-card">
         <!-- 게시글 헤더 -->
         <div class="post-header">
           <div class="user-info">
@@ -56,15 +56,28 @@
 </template>
 
 <script setup>
-import { useStockItemStore } from '@/stores/stockitem';
-import { useUserInterestStore } from '@/stores/userinterest'
-import { onMounted } from 'vue';
+import { useStockItemStore } from '@/stores/stockitem'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router';
 
+const route = useRoute()
 const store = useStockItemStore()
-onMounted(() => {
-  store.getStockInfo()
-})  
+const stockcode = route.params.stock_id
 
+const getCurrentTime = () => {
+  const now = new Date()
+  const hours = String(now.getHours()).padStart(2, '0')
+  const minutes = String(now.getMinutes()).padStart(2, '0')
+  const seconds = String(now.getSeconds()).padStart(2, '0')
+  return `${hours}${minutes}${seconds}`
+}
+
+const currentTime = getCurrentTime()
+
+onMounted(() => {
+store.getArticleInfo(stockcode, currentTime)
+  console.log(store.articles)
+})
 </script>
 
 <style scoped>
