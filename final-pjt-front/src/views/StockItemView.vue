@@ -68,34 +68,64 @@
         </div>
       </div>
     </div>
-    <!-- 커뮤니티 섹션 -->
-    <div class="row mt-4">
-      <div class="col-12">
-        <div class="community-container">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="community-title" @click="moveCommunity">커뮤니티</h3>
-            <button class="btn btn-primary rounded-pill px-4" @click="writeArticle">
-              <i class="bi bi-pencil-fill me-2"></i>글 작성하기
-            </button>
-          </div>
-          <div class="articles-grid">
-            <div v-for="article in stockItemStore.stockInfo.articles_data?.articles" 
-                :key="article.id" 
-                class="article-card">
-              <div class="article-header">
-                <span class="article-status" :class="article.status">{{ article.status }}</span>
+
+
+  <!-- 커뮤니티 섹션 -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="community-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="community-title" @click="moveCommunity">커뮤니티</h3>
+          <button class="btn btn-primary rounded-pill px-4" @click="writeArticle">
+            <i class="bi bi-pencil-fill me-2"></i>글 작성하기
+          </button>
+        </div>
+        
+        <!-- 최신 5개 게시글 -->
+        <div class="articles-list">
+          <div v-for="article in latestArticles" 
+              :key="article.id" 
+              class="article-card">
+            <!-- 작성자 정보 -->
+            <div class="article-user-info">
+              <div class="user-avatar">
+                <img src="" alt="user avatar" class="rounded-circle">
               </div>
-              <div class="article-content">
-                <h4 class="article-title">{{ article.title }}</h4>
-                <p class="article-text">{{ article.content }}</p>
+              <div class="user-details">
+                <span class="user-name">{{ article.author_nickname || '익명' }}</span>
+                <span class="post-time">{{ formatTime(article.created_at) }}</span>
               </div>
-              <div class="article-footer">
-                <span class="article-date">{{ article.created_at }}</span>
+              <div class="more-options">
+                <i class="bi bi-three-dots-vertical"></i>
               </div>
+            </div>
+            
+            <!-- 게시글 내용 -->
+            <div class="article-content">
+              <h5 class="mb-2">{{ article.title }}</h5>
+              <p class="article-text">{{ article.content }}</p>
+              <div class="theme-tag">
+                <span class="badge rounded-pill bg-light text-dark">
+                  {{ article.theme_name }}
+                </span>
+              </div>
+            </div>
+            
+            <!-- 좋아요/댓글 버튼 -->
+            <div class="article-actions">
+              <button class="btn btn-link">
+                <i class="bi bi-heart"></i>
+                <span>좋아요</span>
+              </button>
+              <button class="btn btn-link">
+                <i class="bi bi-chat"></i>
+                <span>댓글</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -156,6 +186,35 @@ const writeArticle = () => {
   })
 }
 
+////커뮤니티 관련
+// 최신 5개 게시글만 표시
+const latestArticles = computed(() => {
+  return stockItemStore.stockInfo.articles_data?.articles.slice(0, 5) || []
+})
+
+const formatTime = (timestamp) => {
+  // 한국 시간으로 변환
+  const date = new Date(timestamp)
+  const now = new Date()
+
+  // 한국 시간으로 조정 (UTC+9)
+  const kstDate = new Date(date.getTime() + (9 * 60 * 60 * 1000))
+  const diff = now - kstDate
+
+  // 1시간 이내
+  if (diff < 3600000) {
+    const minutes = Math.floor(diff / 60000)
+    return `${minutes}분 전`
+  }
+  // 24시간 이내
+  if (diff < 86400000) {
+    const hours = Math.floor(diff / 3600000)
+    return `${hours}시간 전`
+  }
+  // 그 외
+  return `${kstDate.getMonth() + 1}월 ${kstDate.getDate()}일`
+}
+
 </script>
 
 <style scoped>
@@ -207,5 +266,81 @@ h1 {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.community-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.article-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.article-user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.user-details {
+  margin-left: 0.8rem;
+  flex-grow: 1;
+}
+
+.user-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.post-time {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.more-options {
+  color: #666;
+  cursor: pointer;
+}
+
+.article-content {
+  margin-bottom: 1rem;
+}
+
+.article-text {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.theme-tag {
+  margin-bottom: 0.5rem;
+}
+
+.article-actions {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.article-actions .btn-link {
+  color: #666;
+  text-decoration: none;
+}
+
+.article-actions .btn-link i {
+  margin-right: 0.4rem;
 }
 </style>
