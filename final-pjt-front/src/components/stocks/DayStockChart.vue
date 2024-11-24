@@ -55,9 +55,10 @@ const chartOptions = ref({
   xaxis: {
     type: 'datetime',
     labels: {
-      datetimeFormatter: {
-        hour: 'HH:mm:ss'
-      }
+      show: false,
+    },
+    axisTicks: {
+      show: false
     }
   },
   yaxis: {
@@ -69,7 +70,13 @@ const chartOptions = ref({
   },
   tooltip: {
     x: {
-      format: 'HH:mm:ss'
+      show: false // 툴팁의 X값 숨기기
+    },
+    y: {
+      title: {
+        formatter: () => '체결가: ' // 툴팁 타이틀 설정
+      },
+      formatter: (value) => `${Math.round(value).toLocaleString()}원` // 가격 포맷 설정
     }
   }
 })
