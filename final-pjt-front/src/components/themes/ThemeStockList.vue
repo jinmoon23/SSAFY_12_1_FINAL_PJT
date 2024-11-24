@@ -83,7 +83,7 @@ const usaStocks = computed(() =>
 )
 
 const getStockLogo = (code) => {
-  return `/logos/${code}.png`
+  return `https://eodhd.com/img/logos/KO/${code}.png`
 }
 
 const formatPrice = (price) => {
