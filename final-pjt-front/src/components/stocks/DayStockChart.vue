@@ -76,7 +76,9 @@ const chartOptions = ref({
       title: {
         formatter: () => '체결가: ' // 툴팁 타이틀 설정
       },
-      formatter: (value) => `${Math.round(value).toLocaleString()}원` // 가격 포맷 설정
+      formatter: function(value) {
+        return value.toFixed(2).toLocaleString() + '원'
+      }
     }
   }
 })
