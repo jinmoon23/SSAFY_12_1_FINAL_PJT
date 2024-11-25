@@ -36,17 +36,14 @@ const logOut = function () {
 /* 전역 CSS 변수 설정 - scoped 밖에 작성 */
 :root {
   --primary-color: #8bc148;
-  --primary-light: #DCCAF0;
+  --primary-light: #f6c8cd;
   /* --primary-dark: #A274D6; */ /* 보라색 */ 
-  --primary-dark: #D372A4;
+  --primary-dark: 	#ed919c;
 }
 </style>
 
 <style scoped>
 
-/* .App {
-  font-family:'Godo'; 
-} */
 
 @font-face {
   font-family: 'Godo';
