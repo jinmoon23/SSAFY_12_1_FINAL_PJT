@@ -42,6 +42,7 @@ const chartOptions = ref({
       enabled: false
     }
   },
+  colors: ['#F78CA0'],
   dataLabels: { // 이 부분 추가
     enabled: false
   },

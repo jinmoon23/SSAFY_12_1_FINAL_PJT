@@ -125,7 +125,7 @@ const goToThemeDetail = (theme_name) => {
 }
 
 .theme-tag {
-  background-color: #e9ecef;
+  background-color: var(--primary-color_g);
   padding: 0.5rem 1.5rem;
   border-radius: 20px;
   cursor: pointer;
@@ -133,7 +133,7 @@ const goToThemeDetail = (theme_name) => {
 }
 
 .theme-tag:hover {
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: white;
   transform: scale(1.05);
 }
@@ -154,6 +154,7 @@ const goToThemeDetail = (theme_name) => {
 }
 
 .theme-card:hover {
+  background: var(--primary-color_g);
   transform: translateY(-10px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
