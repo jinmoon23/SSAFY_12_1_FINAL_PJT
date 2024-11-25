@@ -87,7 +87,7 @@ const logOut = function () {
 }
 
 .nav-link:hover {
-  color: rgba(255,255,255,0.85) !important;
+  color:#D16A7C !important;
   transform: translateY(-1px);
 }
 
