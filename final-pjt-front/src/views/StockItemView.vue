@@ -231,21 +231,21 @@ const moveArticleDetail = function (articleId) {
 
 const profileImage = ref(null)
 const getProfileImage = function () {
-  // const profileImages = [
-  //       require('@/assets/profile/penguin.png'),
-  //       require('@/assets/profile/elephant.png'),
-  //       require('@/assets/profile/lion.png'),
-  //       require('@/assets/profile/dog.png'),
-  //       require('@/assets/profile/cat.png'),
-  //       require('@/assets/profile/pig.png'),
-  //       require('@/assets/profile/sheep.png'),
-  //       require('@/assets/profile/monkey.png'),
-  //       require('@/assets/profile/rabbit.png'),
-  //       require('@/assets/profile/tiger.png'),
-  //     ];
-  //     const randomIndex = Math.floor(Math.random() * profileImages.length);
-  //     console.log(randomIndex);
-  //     profileImage.value = profileImages[randomIndex]
+  const profileImages = [
+        '@/assets/profile/penguin.png',
+        '@/assets/profile/elephant.png',
+        '@/assets/profile/lion.png',
+        '@/assets/profile/dog.png',
+        '@/assets/profile/cat.png',
+        '@/assets/profile/pig.png',
+        '@/assets/profile/sheep.png',
+        '@/assets/profile/monkey.png',
+        '@/assets/profile/rabbit.png',
+        '@/assets/profile/tiger.png',
+      ];
+      const randomIndex = Math.floor(Math.random() * profileImages.length);
+      console.log(randomIndex);
+      profileImage.value = profileImages[randomIndex]
 }
 
 </script>
