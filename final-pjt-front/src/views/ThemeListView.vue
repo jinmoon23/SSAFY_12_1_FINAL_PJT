@@ -153,6 +153,7 @@ onMounted(() => {
 const goToThemeLoading = (theme_name) => {
   router.push({
     name: "ThemeLoadingView",
+    params: {theme_id : theme_name}
   })
 }
 </script>
