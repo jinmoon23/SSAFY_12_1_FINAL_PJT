@@ -27,28 +27,25 @@
                 <span class="post-time">{{formatDateTime(article.updated_at) }}</span>
               </div>
             </div>
-            <div class="post-menu dropdown">
-              <i class="bi bi-three-dots-vertical"></i>
-            </div>
           </div>
   
           <!-- 게시글 내용 -->
           <div class="post-content" >
             <h5 class="post-title">{{ article.title }}</h5>
             <!-- <p class="post-text">{{ article.content }}</p> -->
-            <div class="theme-tag">
+            <!-- <div class="theme-tag">
               <span class="badge rounded-pill bg-light text-dark">
                 # {{ article.theme_name }}
               </span>
-            </div>
+            </div> -->
           </div>
         </div>
           <!-- 게시글 액션 버튼 -->
           <div class="post-actions">
-            <button class="action-btn">
+            <!-- <button class="action-btn">
               <i class="bi bi-heart"></i>
               <span>좋아요</span>
-            </button>
+            </button> -->
             <button class="action-btn" @click="moveArticleDetail(article.id)">
               <i class="bi bi-chat"></i>
               <span>댓글</span>
@@ -285,7 +282,7 @@ const moveArticleDetail = function (articleId) {
 }
 
 const navigateToStock = function (stock_id) {
-  router.push({name: 'StockItemView', params:{ stock_id : stock_id }})
+  router.push({name: 'day', params:{ stock_id : stock_id }})
 }
 
 </script>
