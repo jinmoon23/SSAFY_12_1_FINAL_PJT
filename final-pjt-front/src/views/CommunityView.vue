@@ -2,7 +2,7 @@
   <div class="container mt-5" v-if="store.articles?.articles_data">
     <div class="community-header">
       <h1 class="text-center mb-4">
-        <span @click="navigateToStock(stockcode)">{{ store.articles?.articles_data?.stock_name }}</span> 주주님들 모이세요!
+        <span id="stock-name" @click="navigateToStock(stockcode)">{{ store.articles?.articles_data?.stock_name }}</span> 주주님들 모이세요!
       </h1>
       <div class="d-flex justify-content-end mb-4">
         <button class="btn btn-primary rounded-pill px-4" @click="articleCreate">
@@ -292,6 +292,14 @@ const navigateToStock = function (stock_id) {
 .container {
   font-family: 'Godo', sans-serif;
   padding: 2rem;
+}
+
+#stock-name {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  border: 1px solid #f8faf5;
+  background-color: #f8faf5;
+  border-radius: 12px;
 }
 
 /* 모달 스타일 */

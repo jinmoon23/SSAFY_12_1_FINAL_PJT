@@ -260,8 +260,8 @@ const getProfileImage = function () {
   background: white;
   padding: 2rem;
   border-radius: 15px;
-  border-left: 4px solid var(--primary-color);
-  margin-bottom: 2rem;
+  /* border-left: 4px solid var(--primary-color); */
+  margin-bottom: 1rem;
 }
 
 .stock-title {
